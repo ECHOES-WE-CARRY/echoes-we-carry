@@ -1,0 +1,235 @@
+/* ==========================================================================
+   BASE / RESET / TYPOGRAPHY / UTILITIES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color-gold) transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--text-ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.section-eyebrow--light {
+  color: var(--color-gold-soft);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  color: var(--text-ink);
+  max-width: 20ch;
+}
+
+.section-title--light {
+  color: var(--text-on-dark);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 1rem 2rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform var(--t-fast), box-shadow var(--t-fast),
+    background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+  will-change: transform;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform var(--t-fast);
+}
+
+.btn:hover .btn-arrow,
+.btn:focus-visible .btn-arrow {
+  transform: translateX(6px);
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-charcoal-deep);
+  box-shadow: 0 10px 30px rgba(198, 153, 47, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-soft);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-on-dark);
+  border: 1px solid rgba(246, 240, 228, 0.4);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-soft);
+  transform: translateY(-3px);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--color-gold-soft);
+  border: 1px solid rgba(198, 153, 47, 0.55);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(198, 153, 47, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold);
+}
+
+.btn-large {
+  padding: 1.15rem 2.6rem;
+  font-size: var(--fs-body);
+}
+
+/* ---- Scroll progress bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold-soft));
+  z-index: var(--z-progress);
+  transition: width 0.1s linear;
+}
+
+/* ---- Focus visibility everywhere ---- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

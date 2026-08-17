@@ -1,0 +1,117 @@
+/* ==========================================================================
+   ECHOES WE CARRY — RESPONSIVE
+   Progressive breakpoints for nav, grids and type.
+   ========================================================================== */
+
+/* ---- Large desktop ---- */
+@media (max-width: 1100px) {
+  .collections__grid,
+  .journal__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .about__media {
+    max-width: 480px;
+  }
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-head--split {
+    flex-direction: row;
+    align-items: center;
+  }
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .vault-card {
+    --vault-card-w: 52%;
+  }
+}
+
+/* ---- Tablet / nav collapse ---- */
+@media (max-width: 900px) {
+  .primary-nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .vault-card {
+    --vault-card-w: 72%;
+  }
+  .hero__motif {
+    right: -28%;
+    width: 80vw;
+    height: 80vw;
+  }
+  .journal__filters {
+    margin-top: var(--space-sm);
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+  .section {
+    padding-block: var(--space-xl);
+  }
+  .collections__grid,
+  .journal__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__nav {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .footer__bottom {
+    flex-direction: column;
+  }
+  .vault-card {
+    --vault-card-w: 88%;
+  }
+  .vault__controls {
+    display: none;
+  }
+  .echoes__stage {
+    min-height: 320px;
+  }
+  .join__form {
+    flex-direction: column;
+  }
+  .join__submit {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero__title {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+  .hero__lede {
+    font-size: 1rem;
+  }
+  .hero__scrollcue {
+    display: none;
+  }
+  .about__badge {
+    right: -10px;
+  }
+  .nav-toggle__bar {
+    height: 2px;
+  }
+}
+
+/* ---- Very small ---- */
+@media (max-width: 380px) {
+  .brand__text {
+    font-size: 1rem;
+  }
+  .hero__title {
+    font-size: 2.1rem;
+  }
+}
