@@ -93,6 +93,7 @@
     if (!mapBox) return;
     mapBox.innerHTML = window.ATLAS_INDIA_SVG;
     svg = qs('svg', mapBox);
+    injectMapDefs(svg);
     var paths = qsa('.atlas-region', mapBox);
     // dedupe the duplicate `id="region-dd"` (IN-DD + IN-DN share the dd id)
     var seen = {};
@@ -100,12 +101,18 @@
       var id = path.getAttribute('id');
       if (id && seen[id]) { path.removeAttribute('id'); }
       if (id) seen[id] = true;
+      // tag union territories so they can wear their own gradient
+      var meta = byId[path.getAttribute('data-state')];
+      if (meta && meta.type && meta.type.toLowerCase().indexOf('union') !== -1) {
+        path.classList.add('is-ut');
+      }
       path.setAttribute('tabindex', '-1');
       path.setAttribute('role', 'img');
       on(path, 'mouseenter', onHover);
       on(path, 'mouseleave', offHover);
       on(path, 'click', onClick);
     });
+    prepEntrance(paths);
     // make the whole map focusable for keyboard arrow navigation
     if (svg) {
       svg.setAttribute('tabindex', '0');
@@ -149,14 +156,25 @@
   }
 
   function onHover(e) {
-    if (prefersReducedMotion) return;
     var id = e.currentTarget.getAttribute('data-state');
     qsa('.atlas-region', mapBox).forEach(function (path) {
       path.classList.toggle('is-hovered', path.getAttribute('data-state') === id);
     });
+    if (tip) {
+      var r = byId[id];
+      if (r) {
+        tip.innerHTML =
+          '<span class="atlas-tip__type">' + escapeHTML(r.type) + '</span>' +
+          '<strong class="atlas-tip__name">' + escapeHTML(r.name) + '</strong>' +
+          (r.capital ? '<span class="atlas-tip__meta">' + escapeHTML(r.capital) + '</span>' : '') +
+          '<span class="atlas-tip__hint">Click for the full profile</span>';
+        tip.classList.add('is-on');
+      }
+    }
   }
   function offHover() {
     qsa('.atlas-region', mapBox).forEach(function (path) { path.classList.remove('is-hovered'); });
+    if (tip) tip.classList.remove('is-on');
   }
   function onClick(e) {
     selectRegion(e.currentTarget.getAttribute('data-state'));
@@ -350,11 +368,139 @@
     else clearSelection();
   });
 
+  /* ---- 8b. premium layer: defs, entrance, tooltip, zoom, stats ---- */
+
+  /* Inject gradient fills + a soft glow filter so every region reads as
+     gilded glass rather than a flat fill. Idempotent. */
+  function injectMapDefs(svgEl) {
+    if (!svgEl || qs('#egFill', svgEl)) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var defs = doc.createElementNS(NS, 'defs');
+    function stop(off, col) {
+      var s = doc.createElementNS(NS, 'stop');
+      s.setAttribute('offset', off);
+      s.setAttribute('stop-color', col);
+      return s;
+    }
+    function grad(id, stops) {
+      var g = doc.createElementNS(NS, 'linearGradient');
+      g.setAttribute('id', id);
+      g.setAttribute('x1', '0'); g.setAttribute('y1', '0');
+      g.setAttribute('x2', '0'); g.setAttribute('y2', '1');
+      for (var i = 0; i < stops.length; i++) g.appendChild(stop(stops[i][0], stops[i][1]));
+      return g;
+    }
+    defs.appendChild(grad('egFill', [['0%', '#2e2749'], ['55%', '#231d3a'], ['100%', '#191430']]));
+    defs.appendChild(grad('egFillUT', [['0%', '#3a2b52'], ['100%', '#241b3a']]));
+    defs.appendChild(grad('egFillHover', [['0%', '#f3dc9a'], ['45%', '#ddb65f'], ['100%', '#c6992f']]));
+    defs.appendChild(grad('egFillActive', [['0%', '#eec97d'], ['50%', '#c6992f'], ['100%', '#8a5a24']]));
+    var filter = doc.createElementNS(NS, 'filter');
+    filter.setAttribute('id', 'egGlow');
+    filter.setAttribute('x', '-40%'); filter.setAttribute('y', '-40%');
+    filter.setAttribute('width', '180%'); filter.setAttribute('height', '180%');
+    var blur = doc.createElementNS(NS, 'feGaussianBlur');
+    blur.setAttribute('stdDeviation', '6');
+    blur.setAttribute('result', 'b');
+    var merge = doc.createElementNS(NS, 'feMerge');
+    var m1 = doc.createElementNS(NS, 'feMergeNode'); m1.setAttribute('in', 'b');
+    var m2 = doc.createElementNS(NS, 'feMergeNode'); m2.setAttribute('in', 'SourceGraphic');
+    merge.appendChild(m1); merge.appendChild(m2);
+    filter.appendChild(blur); filter.appendChild(merge);
+    defs.appendChild(filter);
+    svgEl.insertBefore(defs, svgEl.firstChild);
+  }
+
+  /* Staggered fade-in for the regions once the hero has risen. Inline styles
+     are cleared afterwards so stylesheet hover transitions take over. */
+  function prepEntrance(paths) {
+    if (prefersReducedMotion || !paths.length) return;
+    paths.forEach(function (path, i) {
+      path.style.opacity = '0';
+      path.style.transition =
+        'opacity 0.7s var(--ease-out-soft) ' + Math.min(i * 26, 1600) + 'ms' +
+        ', fill 0.35s var(--ease-elegant), stroke 0.35s var(--ease-elegant)';
+    });
+  }
+  function playEntrance() {
+    if (prefersReducedMotion || !mapBox) return;
+    var paths = qsa('.atlas-region', mapBox);
+    paths.forEach(function (path) { path.style.opacity = '1'; });
+    window.setTimeout(function () {
+      paths.forEach(function (path) { path.style.opacity = ''; path.style.transition = ''; });
+    }, 2300);
+  }
+
+  /* Cursor-following glass card (pointer devices only). */
+  var tip = null;
+  function initTooltip() {
+    if (!mapBox) return;
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+    tip = doc.createElement('div');
+    tip.className = 'atlas-tip';
+    tip.setAttribute('aria-hidden', 'true');
+    doc.body.appendChild(tip);
+    on(mapBox, 'mousemove', function (e) {
+      if (!tip) return;
+      var x = e.clientX + 18, y = e.clientY + 18;
+      if (x + 280 > window.innerWidth) x = e.clientX - 282;
+      if (y + 150 > window.innerHeight) y = e.clientY - 152;
+      tip.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    });
+  }
+
+  /* Zoom in / out / reset via transform scale on the svg. */
+  var zoomLevel = 1;
+  function initZoom() {
+    if (!svg) return;
+    on(qs('#atlas-zoom-in', root), 'click', function () { setZoom(zoomLevel * 1.35); });
+    on(qs('#atlas-zoom-out', root), 'click', function () { setZoom(zoomLevel / 1.35); });
+    on(qs('#atlas-zoom-reset', root), 'click', function () { setZoom(1); });
+  }
+  function setZoom(z) {
+    if (!svg) return;
+    zoomLevel = Math.max(1, Math.min(4.2, z));
+    svg.style.transform = 'scale(' + zoomLevel + ')';
+    if (mapBox) mapBox.classList.toggle('is-zoomed', zoomLevel > 1.02);
+    announce('Map zoom ' + Math.round(zoomLevel * 100) + ' percent.');
+  }
+
+  /* Count-up animation for the masthead stat chips. */
+  function initStats() {
+    var nums = qsa('.atlas-stat__num', root);
+    if (!nums.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
+    function countUp(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var k = Math.min(1, (ts - t0) / 1400);
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) window.requestAnimationFrame(step);
+      }
+      window.requestAnimationFrame(step);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        countUp(en.target);
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function (n) {
+      if (parseInt(n.getAttribute('data-count'), 10)) { n.textContent = '0'; io.observe(n); }
+    });
+  }
+
   /* ---- init ---- */
   function init() {
     injectMap();
+    initTooltip();
+    initZoom();
+    initStats();
     bindSearch();
     bindFilters();
+    // let the preloader finish (~1.5s) before the regions bloom in
+    window.setTimeout(playEntrance, prefersReducedMotion ? 0 : 1750);
     on(window, 'load', readDeepLink);
   }
 

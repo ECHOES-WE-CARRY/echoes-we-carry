@@ -75,4 +75,31 @@
   --z-nav: 500;
   --z-progress: 600;
   --z-loader: 999;
+
+  /* ==========================================================================
+     GRAND RE-THEME TOKENS — deep immersive cultural palette
+     ========================================================================== */
+  --void: #0b0910;
+  --ink-deep: #120f1b;
+  --indigo-night: #191430;
+  --plum-deep: #2a1a33;
+  --wine-deep: #4a2230;
+  --gold-bright: #f3dc9a;
+  --gold-pale: #ffe9b8;
+
+  --grad-gold-text: linear-gradient(105deg, #f3dc9a 0%, #ddb65f 38%, #c6992f 64%, #a87c24 100%);
+  --grad-gold-line: linear-gradient(90deg, transparent, rgba(221, 182, 95, 0.65), transparent);
+
+  --glass-bg: linear-gradient(160deg, rgba(255, 253, 248, 0.055), rgba(255, 253, 248, 0.018));
+  --glass-bg-strong: linear-gradient(165deg, rgba(28, 22, 44, 0.92), rgba(16, 12, 26, 0.94));
+  --glass-line: rgba(221, 182, 95, 0.22);
+  --glass-line-strong: rgba(221, 182, 95, 0.4);
+  --glass-blur: blur(14px) saturate(1.2);
+
+  --shadow-lift: 0 30px 70px rgba(0, 0, 0, 0.55), 0 6px 20px rgba(0, 0, 0, 0.35);
+  --ring-gold-hover: 0 0 0 1px rgba(221, 182, 95, 0.45), 0 24px 60px rgba(198, 153, 47, 0.14);
+
+  --aurora-violet: rgba(93, 62, 168, 0.28);
+  --aurora-terra: rgba(178, 85, 57, 0.16);
+  --aurora-gold: rgba(198, 153, 47, 0.13);
 }
