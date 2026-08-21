@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/sections.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/atlas.css" />
 </head>
 
 <body id="top">
@@ -53,6 +54,7 @@
           <li><a href="#vault" class="nav-link"><span data-text="The Vault">The Vault</span></a></li>
           <li><a href="#echoes" class="nav-link"><span data-text="Echoes">Echoes</span></a></li>
           <li><a href="#journal" class="nav-link"><span data-text="Journal">Journal</span></a></li>
+          <li><a href="#atlas" class="nav-link"><span data-text="Atlas">Atlas</span></a></li>
         </ul>
         <a href="#join" class="btn btn-primary nav__cta">
           <span>Begin Your Story</span>
@@ -508,6 +510,39 @@
     </section>
 
 
+    <!-- ============ CULTURAL ATLAS (Phase 2) ============ -->
+    <section class="section atlas" id="atlas" data-reveal>
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <div>
+            <p class="section-eyebrow">The Cultural Atlas of India</p>
+            <h2 class="section-title">Echoes mapped across 36 states and union territories</h2>
+          </div>
+        </header>
+
+        <div class="atlas-toolbar" role="toolbar" aria-label="Filter and search regions" data-reveal>
+          <label for="atlas-search" class="visually-hidden">Search states and union territories</label>
+          <input id="atlas-search" type="search" class="atlas-search__input" placeholder="Search states and union territories…" autocomplete="off" />
+          <div class="atlas-filters">
+            <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" data-filter="state" aria-pressed="false">States</button>
+            <button type="button" class="filter-btn" data-filter="ut" aria-pressed="false">Union Territories</button>
+          </div>
+        </div>
+
+        <div class="atlas-layout" data-reveal>
+          <div class="atlas-map" id="atlas-map"></div>
+          <aside class="atlas-panel" id="atlas-panel" aria-live="polite" aria-atomic="true">
+            <div class="atlas-panel__placeholder">
+              <p class="atlas-panel__hint">Hover a state or union territory on the map to preview its echoes. Click to read its full profile.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div id="atlas-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </section>
+
     <!-- ============ JOIN / NEWSLETTER ============ -->
     <section class="section join" id="join">
       <div class="container">
@@ -569,6 +604,7 @@
             <li><a href="#the-house">The House</a></li>
             <li><a href="#collections">Collections</a></li>
             <li><a href="#vault">The Vault</a></li>
+            <li><a href="#atlas">Atlas</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -602,6 +638,9 @@
 
   <!-- ============ SCRIPTS ============ -->
   <script src="js/main.js" defer></script>
+  <script src="js/cultural-data.js" defer></script>
+  <script src="js/india-map-data.js" defer></script>
+  <script src="js/atlas.js" defer></script>
 </body>
 </html>
 

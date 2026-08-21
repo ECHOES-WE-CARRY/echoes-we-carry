@@ -1,0 +1,122 @@
+/* ===========================================================================
+   Echoes We Carry - Cultural Atlas: interactive rendering layer (Phase 2)
+   Depends on: css/variables.css tokens | js/atlas.js | js/cultural-data.js
+               | js/india-map-data.js
+   Every selector is scoped under `.atlas` so Phase-1 section styling is
+   never restyled by this file. Map paths carry no inline fill (the generator
+   emits only class + data-state), so their colours are defined here.
+   =========================================================================== */
+
+/* --- region map surface --- */
+.atlas-map {
+  max-width: 540px;
+  margin-inline: auto;
+  background: var(--color-ivory);
+  border: 1px solid var(--color-indigo-light);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 22px rgba(27, 31, 59, 0.12);
+  overflow: hidden;
+}
+.atlas-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* interactive states live on the generated `.atlas-region` paths */
+.atlas-region {
+  fill: var(--color-parchment);
+  stroke: var(--color-indigo);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill var(--t-fast), stroke var(--t-fast);
+}
+.atlas-region:hover,
+.atlas-region.is-hovered {
+  fill: var(--color-gold-soft);
+  stroke: var(--color-terracotta);
+  stroke-width: 1.35;
+}
+.atlas-region.is-selected {
+  fill: var(--color-gold);
+  stroke: var(--color-terracotta);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 7px rgba(178, 85, 57, 0.55));
+}
+.atlas-region.is-filtered-out {
+  opacity: 0.18;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-region { transition: none; }
+}
+
+/* --- two-pane layout --- */
+.atlas-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+@media (min-width: 900px) {
+  .atlas-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+}
+
+/* --- profile panel --- */
+.atlas-panel {
+  background: var(--color-white);
+  border: 1px solid rgba(27, 31, 59, 0.08);
+  border-radius: 0.75rem;
+  padding: var(--space-md);
+  box-shadow: 0 4px 22px rgba(27, 31, 59, 0.08);
+  overflow-wrap: break-word;
+}
+.atlas-panel__placeholder { color: var(--text-ink-muted); }
+.atlas-panel__hint { font-style: italic; }
+
+/* --- profile content --- */
+.atlas-profile { display: grid; gap: var(--space-sm); }
+.atlas-hero__title   { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--color-indigo); margin: 0; }
+.atlas-hero__meta    { font-size: var(--fs-small); color: var(--text-ink-muted); margin: 0; }
+.atlas-hero__lang    { font-size: var(--fs-small); color: var(--color-gold-dark); margin: 0 0 var(--space-2xs); }
+.atlas-hero__preview  { margin: 0; line-height: 1.6; }
+.atlas-block__title   { font-size: var(--fs-caption); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold-dark); margin: 0 0 var(--space-2xs); }
+.atlas-block__body    { font-size: var(--fs-body); line-height: 1.65; color: var(--text-ink); }
+.atlas-para           { margin: 0; }
+.atlas-list           { margin: 0; padding-left: 1.2rem; }
+.atlas-list li        { margin-bottom: var(--space-2xs); }
+.atlas-item__title    { font-weight: 700; color: var(--color-indigo); }
+.atlas-wonder         { background: var(--color-parchment); border-left: 3px solid var(--color-terracotta); padding: var(--space-sm); border-radius: 0 0.5rem 0.5rem 0; }
+.atlas-wonder__badge  { display: inline-block; font-size: var(--fs-caption); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: var(--space-2xs); }
+.atlas-wonder__title   { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--color-indigo); margin: 0 0 var(--space-2xs); }
+.atlas-wonder__note    { margin: 0; }
+
+/* --- toolbar (reuses .filter-btn / .is-active from components.css) --- */
+.atlas-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+.atlas-search { flex: 1 1 240px; }
+.atlas-search__input {
+  width: 100%;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(27, 31, 59, 0.2);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  color: var(--text-ink);
+  background: var(--color-white);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.atlas-search__input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(198, 153, 47, 0.25);
+}
+.atlas-filters { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }

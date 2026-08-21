@@ -1,0 +1,699 @@
+/* ==========================================================================
+   ECHOES WE CARRY — REFINEMENT LAYER
+   Loaded LAST. Extends the Five Senses / Atlas visual language across the
+   whole site: layered warm gradients, grain, glass panels, gold glow.
+   ADDITIVE ONLY — never removes structure, content or behaviour.
+   Reuses tokens from css/variables.css and the exact rgba values already
+   established in css/experience.css (.senses).
+   ========================================================================== */
+
+/* ==========================================================================
+   0. SHARED RECIPE TOKENS (derived from the Five Senses palette)
+   ========================================================================== */
+:root {
+  --sense-night: #12142b;
+  --grad-sense: linear-gradient(168deg, var(--sense-night) 0%, var(--color-indigo) 46%, var(--color-charcoal-deep) 100%);
+  --glow-gold-a: rgba(198, 153, 47, 0.14);
+  --glow-terra-a: rgba(178, 85, 57, 0.16);
+  --hairline-gold: rgba(221, 182, 95, 0.35);
+  --card-ring-hover: 0 0 0 1px rgba(198, 153, 47, 0.3);
+  --grain-light: radial-gradient(rgba(138, 108, 34, 0.055) 1px, transparent 1px);
+}
+
+::selection {
+  background: rgba(198, 153, 47, 0.32);
+  color: var(--color-charcoal-deep);
+}
+
+/* ==========================================================================
+   1. NAVIGATION — soft glass that fits the palette
+   ========================================================================== */
+.site-header {
+  background: linear-gradient(to bottom, rgba(21, 19, 15, 0.32), rgba(21, 19, 15, 0));
+}
+.site-header.is-scrolled {
+  background: linear-gradient(to bottom, rgba(21, 19, 15, 0.94), rgba(21, 19, 15, 0.86));
+  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+  backdrop-filter: blur(16px) saturate(1.25);
+  border-bottom-color: rgba(198, 153, 47, 0.24);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+}
+.nav-link {
+  text-shadow: 0 1px 8px rgba(21, 19, 15, 0.45);
+}
+.brand__mark {
+  box-shadow: 0 0 0 1px rgba(198, 153, 47, 0.08), 0 4px 18px rgba(198, 153, 47, 0.22);
+}
+
+/* ==========================================================================
+   2. BUTTONS — gold gradient, inner light, shine sweep
+   ========================================================================== */
+.btn {
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(105deg, transparent, rgba(255, 253, 248, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s var(--ease-elegant);
+  pointer-events: none;
+}
+.btn:hover::after,
+.btn:focus-visible::after {
+  left: 130%;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-gold-soft) 0%, var(--color-gold) 52%, var(--color-gold-dark) 125%);
+  box-shadow: 0 10px 30px rgba(198, 153, 47, 0.3),
+    inset 0 1px 0 rgba(255, 253, 248, 0.5),
+    inset 0 -1px 0 rgba(21, 19, 15, 0.18);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e7c06c 0%, var(--color-gold-soft) 55%, var(--color-gold) 130%);
+  box-shadow: 0 16px 44px rgba(198, 153, 47, 0.42),
+    inset 0 1px 0 rgba(255, 253, 248, 0.55);
+}
+.btn-secondary,
+.btn-outline-gold {
+  background: rgba(21, 19, 15, 0.22);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.btn-outline-gold {
+  box-shadow: inset 0 0 0 1px rgba(221, 182, 95, 0.08), 0 8px 26px rgba(198, 153, 47, 0.1);
+}
+.btn-outline-gold:hover {
+  background: rgba(198, 153, 47, 0.16);
+  border-color: var(--color-gold-soft);
+}
+
+/* ---- filter chips unified with the sense-node gold active language ---- */
+.filter-btn {
+  background: rgba(255, 253, 248, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 253, 248, 0.8);
+}
+.filter-btn:hover {
+  transform: translateY(-2px);
+  background: var(--color-white);
+  box-shadow: 0 8px 20px rgba(36, 31, 26, 0.09);
+}
+.filter-btn.is-active {
+  background: linear-gradient(135deg, var(--color-gold-soft), var(--color-gold));
+  border-color: var(--color-gold);
+  color: var(--color-charcoal-deep);
+  box-shadow: 0 8px 22px rgba(198, 153, 47, 0.35), inset 0 1px 0 rgba(255, 253, 248, 0.45);
+  transform: translateY(-2px);
+}
+.thread-btn:hover,
+.maker-filter:hover,
+.story-filter:hover {
+  transform: translateY(-2px);
+}
+.story-filter.is-active {
+  background: linear-gradient(135deg, var(--color-indigo-light), var(--color-indigo));
+  box-shadow: 0 8px 22px rgba(27, 31, 59, 0.3);
+}
+.maker-filter.is-active,
+.thread-btn.is-active {
+  background: linear-gradient(135deg, var(--color-gold-soft), var(--color-gold));
+  box-shadow: 0 8px 24px rgba(198, 153, 47, 0.38), inset 0 1px 0 rgba(255, 253, 248, 0.4);
+}
+
+/* ---- carousel arrows ---- */
+.carousel-btn {
+  background: rgba(21, 19, 15, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+.carousel-btn--ghost {
+  background: rgba(255, 253, 248, 0.6);
+  box-shadow: 0 6px 16px rgba(36, 31, 26, 0.08);
+}
+.carousel-btn--ghost:hover {
+  background: var(--color-gold);
+  box-shadow: 0 10px 26px rgba(198, 153, 47, 0.38);
+}
+
+
+/* ==========================================================================
+   3. HERO — cinematic depth: layered glows, vignette, ambient drift
+   ========================================================================== */
+.hero {
+  background:
+    radial-gradient(circle at 16% 14%, var(--glow-gold-a), transparent 36%),
+    radial-gradient(circle at 86% 84%, var(--glow-terra-a), transparent 40%),
+    radial-gradient(90% 62% at 50% 108%, rgba(198, 153, 47, 0.12), transparent 60%),
+    linear-gradient(160deg, #191c35 0%, var(--color-charcoal-deep) 60%, #241f1a 100%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 92% at 50% 8%, transparent 42%, rgba(15, 13, 10, 0.5) 100%),
+    linear-gradient(to top, rgba(15, 13, 10, 0.55), transparent 32%);
+}
+.hero__bg {
+  animation: hero-drift 22s var(--ease-out-soft) infinite alternate;
+}
+@keyframes hero-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-2.5%, -1.8%, 0) scale(1.05); }
+}
+.hero__motif {
+  filter: drop-shadow(0 0 34px rgba(198, 153, 47, 0.28));
+}
+.hero__title {
+  text-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+.rotate-word {
+  text-shadow: 0 0 30px rgba(221, 182, 95, 0.45);
+}
+.hero__eyebrow-line,
+.hero__scrollcue-icon {
+  box-shadow: 0 0 12px rgba(198, 153, 47, 0.4);
+}
+.hero__scrollcue {
+  padding: var(--space-xs) var(--space-sm) calc(var(--space-xs) + 4px);
+  border: 1px solid rgba(221, 182, 95, 0.3);
+  border-radius: 999px;
+  background: rgba(21, 19, 15, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: border-color var(--t-fast), background var(--t-fast),
+    transform var(--t-fast), box-shadow var(--t-fast);
+}
+.hero__scrollcue:hover {
+  border-color: var(--color-gold);
+  background: rgba(21, 19, 15, 0.55);
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 12px 34px rgba(198, 153, 47, 0.25);
+}
+
+/* ==========================================================================
+   4. SECTION SCAFFOLDING — shared head polish
+   ========================================================================== */
+.section-head > div:first-child .section-title {
+  text-wrap: balance;
+}
+.section-title {
+  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.6);
+}
+.senses .section-title,
+.threads .section-title,
+.makers .section-title,
+.vault .section-title--light {
+  text-shadow: 0 10px 44px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   5. THE HOUSE / ABOUT — warm atmospheric wash + woven texture
+   ========================================================================== */
+.about {
+  position: relative;
+  background:
+    radial-gradient(circle at 10% 6%, var(--glow-gold-a), transparent 32%),
+    radial-gradient(circle at 92% 88%, rgba(178, 85, 57, 0.08), transparent 38%),
+    repeating-linear-gradient(45deg, rgba(138, 108, 34, 0.028) 0 1px, transparent 1px 15px),
+    var(--color-ivory);
+}
+.about__frame {
+  border-radius: var(--radius-md);
+  background: rgba(255, 253, 248, 0.45);
+  box-shadow: 0 26px 64px rgba(36, 31, 26, 0.14);
+}
+.about__frame::before {
+  inset: -12px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(140deg, rgba(198, 153, 47, 0.4), rgba(178, 85, 57, 0.18)) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-color: transparent;
+}
+.about__art {
+  border-radius: var(--radius-sm);
+}
+.about__art-svg {
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.35);
+}
+.about__badge {
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(138, 108, 34, 0.35);
+  box-shadow: 0 18px 44px rgba(138, 108, 34, 0.35),
+    inset 0 1px 0 rgba(255, 253, 248, 0.5);
+}
+.about__quote cite::before {
+  content: '\2014\2002';
+  color: var(--color-gold-dark);
+}
+
+/* ==========================================================================
+   6. PREMIUM CULTURAL CARD LANGUAGE
+   Shared by Collections, Journal, Stories — rounded, layered, glowing.
+   ========================================================================== */
+.collection-card,
+.journal-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(138, 108, 34, 0.22);
+  background: linear-gradient(165deg, var(--color-white) 0%, var(--color-ivory) 100%);
+  box-shadow: 0 6px 26px rgba(36, 31, 26, 0.07),
+    inset 0 1px 0 rgba(255, 253, 248, 0.8);
+}
+.collection-card::before,
+.journal-card::before,
+.story-card::before,
+.maker-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  z-index: 3;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0;
+  transition: opacity var(--t-medium);
+}
+.collection-card:hover::before,
+.journal-card:hover::before,
+.story-card:hover::before,
+.maker-card:hover::before {
+  opacity: 1;
+}
+.collection-card:hover,
+.journal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-ring-hover),
+    0 26px 56px rgba(36, 31, 26, 0.16),
+    0 18px 44px rgba(198, 153, 47, 0.14);
+}
+.collection-card__media::after,
+.journal-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 253, 248, 0.2), transparent 52%),
+    radial-gradient(rgba(246, 240, 228, 0.1) 1px, transparent 1px);
+  background-size: auto, 16px 16px;
+}
+.collection-card__media {
+  box-shadow: inset 0 -34px 44px rgba(21, 19, 15, 0.35);
+}
+.collection-card__icon {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+  transition: transform var(--t-medium);
+}
+.collection-card:hover .collection-card__icon {
+  transform: translateY(-4px) scale(1.1);
+}
+.collection-card__tags li {
+  background: rgba(198, 153, 47, 0.07);
+  transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+}
+.collection-card:hover .collection-card__tags li {
+  border-color: rgba(198, 153, 47, 0.4);
+  color: var(--color-gold-dark);
+}
+
+/* ==========================================================================
+   7. THE VAULT — senses-style night gallery
+   ========================================================================== */
+.vault {
+  position: relative;
+  background:
+    radial-gradient(circle at 14% 16%, var(--glow-gold-a), transparent 38%),
+    radial-gradient(circle at 86% 84%, rgba(178, 85, 57, 0.13), transparent 42%),
+    var(--color-charcoal-deep);
+}
+.vault::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(246, 240, 228, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.vault .section-head {
+  position: relative;
+}
+.vault-card__art {
+  border-radius: var(--radius-md);
+  border-color: rgba(221, 182, 95, 0.35);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(221, 182, 95, 0.06);
+  transition: box-shadow var(--t-medium), transform var(--t-medium);
+}
+.vault-card__art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(246, 240, 228, 0.14), transparent 48%),
+    radial-gradient(rgba(246, 240, 228, 0.07) 1px, transparent 1px);
+  background-size: auto, 18px 18px;
+}
+.vault-card__art svg {
+  transition: transform var(--t-slow);
+}
+.vault-card:hover .vault-card__art {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(198, 153, 47, 0.18),
+    inset 0 0 0 1px rgba(221, 182, 95, 0.16);
+}
+.vault-card:hover .vault-card__art svg {
+  transform: scale(1.05);
+}
+.vault-card__year {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(246, 240, 228, 0.08);
+}
+.vault-card__body {
+  border-bottom-color: rgba(221, 182, 95, 0.22);
+}
+.vault__dot {
+  box-shadow: inset 0 0 0 1px rgba(246, 240, 228, 0.12);
+}
+.vault__dot.is-active {
+  box-shadow: 0 0 14px rgba(221, 182, 95, 0.65);
+}
+
+/* ==========================================================================
+   8. ECHOES — testimonial stage as a warm framed panel
+   ========================================================================== */
+.echoes {
+  background:
+    radial-gradient(circle at 88% 10%, var(--glow-gold-a), transparent 34%),
+    radial-gradient(circle at 8% 92%, rgba(178, 85, 57, 0.08), transparent 38%),
+    repeating-linear-gradient(-45deg, rgba(138, 108, 34, 0.025) 0 1px, transparent 1px 15px),
+    var(--color-ivory);
+}
+.echoes__stage {
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(138, 108, 34, 0.24);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(198, 153, 47, 0.09), transparent 55%),
+    linear-gradient(170deg, var(--color-white), var(--color-parchment));
+  box-shadow: var(--shadow-soft);
+}
+.echoes__stage::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.08em;
+  left: 0.04em;
+  font-family: var(--font-serif);
+  font-size: clamp(7rem, 14vw, 11rem);
+  line-height: 1;
+  color: rgba(198, 153, 47, 0.16);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   9. JOURNAL — parchment atelier notes
+   ========================================================================== */
+.journal {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(198, 153, 47, 0.11), transparent 34%),
+    radial-gradient(circle at 90% 90%, rgba(178, 85, 57, 0.09), transparent 38%),
+    repeating-linear-gradient(45deg, rgba(138, 108, 34, 0.026) 0 1px, transparent 1px 15px),
+    var(--color-parchment);
+}
+.journal-card__media {
+  box-shadow: inset 0 -40px 48px rgba(21, 19, 15, 0.32);
+  transition: filter var(--t-medium);
+}
+.journal-card:hover .journal-card__media {
+  filter: saturate(1.12) brightness(1.05);
+}
+.journal-card__cat {
+  border: 1px solid rgba(198, 153, 47, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 253, 248, 0.5);
+}
+
+/* ==========================================================================
+   10. CULTURAL ATLAS — warm cartography room
+   ========================================================================== */
+.atlas {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(198, 153, 47, 0.1), transparent 32%),
+    radial-gradient(circle at 90% 94%, rgba(178, 85, 57, 0.08), transparent 36%),
+    linear-gradient(180deg, var(--color-parchment) 0%, var(--color-ivory) 100%);
+}
+.atlas-map {
+  border-radius: var(--radius-lg);
+  border-color: rgba(138, 108, 34, 0.35);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(198, 153, 47, 0.1), transparent 58%),
+    linear-gradient(160deg, var(--color-white), var(--color-parchment));
+  box-shadow: 0 30px 70px rgba(27, 31, 59, 0.18),
+    inset 0 1px 0 rgba(255, 253, 248, 0.8);
+}
+.atlas-panel {
+  position: relative;
+  border-radius: var(--radius-lg);
+  border-color: rgba(138, 108, 34, 0.22);
+  border-top: 3px solid var(--color-gold);
+  background:
+    radial-gradient(circle at 85% 0%, rgba(198, 153, 47, 0.08), transparent 44%),
+    linear-gradient(165deg, var(--color-white), var(--color-parchment));
+  box-shadow: var(--shadow-soft);
+}
+.atlas-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--grain-light);
+  background-size: 22px 22px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.atlas-panel > * {
+  position: relative;
+}
+.atlas-hero__title {
+  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.7);
+}
+.atlas-wonder {
+  background: linear-gradient(120deg, rgba(239, 230, 211, 0.9), rgba(246, 240, 228, 0.7));
+  border-left-color: var(--color-gold-dark);
+  box-shadow: inset 0 1px 0 rgba(255, 253, 248, 0.8);
+}
+
+/* ==========================================================================
+   11. STORIES — ivory gallery with quiet warmth
+   ========================================================================== */
+.stories {
+  position: relative;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(198, 153, 47, 0.09), transparent 34%),
+    radial-gradient(circle at 8% 90%, rgba(178, 85, 57, 0.07), transparent 38%),
+    repeating-linear-gradient(-45deg, rgba(138, 108, 34, 0.02) 0 1px, transparent 1px 16px),
+    var(--color-ivory);
+}
+.story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-ring-hover),
+    0 28px 60px rgba(36, 31, 26, 0.16),
+    0 18px 44px rgba(198, 153, 47, 0.13);
+}
+.story-card__badge,
+.story-card__region {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* ==========================================================================
+   12. THREADS + MAKERS — grain parity with the Senses reference
+   ========================================================================== */
+.threads::before,
+.makers::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(246, 240, 228, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   13. JOIN / NEWSLETTER — gilded correspondence panel
+   ========================================================================== */
+.join {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(198, 153, 47, 0.1), transparent 34%),
+    radial-gradient(circle at 88% 88%, rgba(178, 85, 57, 0.08), transparent 38%),
+    repeating-linear-gradient(45deg, rgba(138, 108, 34, 0.024) 0 1px, transparent 1px 15px),
+    var(--color-ivory);
+}
+.join__panel {
+  border: 1px solid rgba(198, 153, 47, 0.32);
+  background:
+    radial-gradient(circle at 12% 20%, var(--glow-gold-a), transparent 40%),
+    radial-gradient(circle at 88% 85%, var(--glow-terra-a), transparent 42%),
+    linear-gradient(150deg, var(--color-indigo) 0%, var(--sense-night) 55%, var(--color-charcoal-deep) 100%);
+}
+.join__panel::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  z-index: 0;
+  border: 1px solid rgba(221, 182, 95, 0.18);
+  border-radius: calc(var(--radius-lg) - 10px);
+  pointer-events: none;
+}
+.join__panel > * {
+  position: relative;
+  z-index: 1;
+}
+.join__motif {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(198, 153, 47, 0.18), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(198, 153, 47, 0.14), transparent 40%),
+    radial-gradient(rgba(246, 240, 228, 0.05) 1px, transparent 1px);
+  background-size: auto, auto, 22px 22px;
+}
+.join__input {
+  background: rgba(21, 19, 15, 0.5);
+  border-color: rgba(221, 182, 95, 0.28);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.join__input:focus-visible {
+  border-color: var(--color-gold-soft);
+  box-shadow: 0 0 0 3px rgba(198, 153, 47, 0.28), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   14. FOOTER — ember glow over the deep charcoal
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(198, 153, 47, 0.09), transparent 42%),
+    radial-gradient(circle at 94% 100%, rgba(178, 85, 57, 0.08), transparent 40%),
+    var(--color-charcoal-deep);
+  border-top: 1px solid rgba(198, 153, 47, 0.22);
+}
+.footer__bottom {
+  border-top-color: rgba(221, 182, 95, 0.14);
+}
+
+/* ==========================================================================
+   15. CHROME — progress bar, back-to-top, modal, socials
+   ========================================================================== */
+.scroll-progress {
+  box-shadow: 0 0 12px rgba(221, 182, 95, 0.55);
+}
+.back-to-top {
+  border: 1px solid rgba(246, 240, 228, 0.35);
+}
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(198, 153, 47, 0.45);
+}
+.modal__dialog {
+  box-shadow: var(--shadow-deep), 0 0 0 1px rgba(198, 153, 47, 0.2);
+}
+.modal__dialog::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+.social-link {
+  background: rgba(246, 240, 228, 0.04);
+}
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(198, 153, 47, 0.22);
+}
+
+/* ==========================================================================
+   16. RESPONSIVE REFINEMENTS — keep the richness at every size
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .hero__motif {
+    opacity: 0.75;
+  }
+}
+@media (max-width: 900px) {
+  .echoes__stage::before {
+    font-size: clamp(5.5rem, 16vw, 8rem);
+  }
+  .join__panel::after {
+    inset: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .hero__scrollcue {
+    padding: 0.55rem 0.9rem 0.85rem;
+  }
+  .about__frame::before {
+    inset: -8px;
+  }
+  .collection-card,
+  .journal-card,
+  .story-card,
+  .maker-card {
+    border-radius: var(--radius-md);
+  }
+  .collection-card__media {
+    height: 180px;
+  }
+  .vault-card__art {
+    border-radius: var(--radius-sm);
+  }
+  .echoes__stage {
+    padding: 1.75rem 1.1rem;
+  }
+  .echoes__stage::before {
+    top: -0.12em;
+    font-size: 4.6rem;
+  }
+  .join__panel::after {
+    inset: 8px;
+  }
+  .atlas-panel {
+    border-top-width: 2px;
+  }
+  .modal__dialog::before {
+    height: 2px;
+  }
+}
+
+/* ==========================================================================
+   17. MOTION GUARDS — ambient layers respect reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    animation: none;
+  }
+  .btn::after {
+    display: none;
+  }
+  .collection-card::before,
+  .journal-card::before,
+  .story-card::before,
+  .maker-card::before {
+    transition: none;
+  }
+}
