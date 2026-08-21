@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="css/sections.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/atlas.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/refinement.css" />
 </head>
 
 <body id="top">
@@ -543,6 +545,80 @@
       </div>
     </section>
 
+    <!-- ============ THE FIVE SENSES ============ -->
+    <section class="section senses" id="senses">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">The Five Senses of India</p>
+            <h2 class="section-title">Culture begins where the senses remember.</h2>
+          </div>
+          <p class="senses__lede">Choose a sense to trace the places, materials and rituals it awakens.</p>
+        </header>
+        <div class="senses__grid">
+          <div class="senses__stage">
+            <div class="senses__map" id="senses-map"></div>
+            <div class="senses__nodes" role="list" aria-label="Five senses">
+              <button class="sense-node" type="button" data-sense="see" style="--x:50%;--y:12%" aria-label=""><span class="sense-node__icon"></span><span class="sense-node__label"></span></button>
+              <button class="sense-node" type="button" data-sense="hear" style="--x:88%;--y:36%" aria-label=""><span class="sense-node__icon"></span><span class="sense-node__label"></span></button>
+              <button class="sense-node" type="button" data-sense="taste" style="--x:74%;--y:86%" aria-label=""><span class="sense-node__icon"></span><span class="sense-node__label"></span></button>
+              <button class="sense-node" type="button" data-sense="smell" style="--x:26%;--y:86%" aria-label=""><span class="sense-node__icon"></span><span class="sense-node__label"></span></button>
+              <button class="sense-node" type="button" data-sense="touch" style="--x:12%;--y:36%" aria-label=""><span class="sense-node__icon"></span><span class="sense-node__label"></span></button>
+            </div>
+          </div>
+          <aside class="senses__panel" id="senses-panel" aria-live="polite"><div class="senses__placeholder"><p>Hover a node to light the region it awakens. Click to read its full profile.</p></div></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THREADS ============ -->
+    <section class="section threads" id="threads">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Threads That Connect Us</p>
+            <h2 class="section-title">One tradition, many places.</h2>
+          </div>
+          <p class="threads__lede">Follow the living threads that move through regions, generations and hands.</p>
+        </header>
+        <div class="threads__cats" id="threads-cats" role="toolbar" aria-label="Cultural threads"></div>
+        <div class="threads__layout">
+          <div class="threads__map" id="threads-map"></div>
+          <aside class="threads__info" id="threads-info" aria-live="polite"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STORIES ============ -->
+    <section class="section stories" id="stories">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Stories Behind the Culture</p>
+            <h2 class="section-title">Every heirloom has a before.</h2>
+          </div>
+        </header>
+        <div class="stories__filters" id="stories-filters" role="toolbar" aria-label="Story filters"></div>
+        <div class="stories__grid" id="stories-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ MAKERS ============ -->
+    <section class="section makers" id="makers">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Meet the Makers</p>
+            <h2 class="section-title">The hands that keep the line open.</h2>
+          </div>
+          <p class="makers__intro">Craft survives through people who keep practicing, adapting and passing it forward.</p>
+        </header>
+        <div class="makers__filters" id="makers-filters" role="toolbar" aria-label="Maker filters"></div>
+        <div class="makers__grid" id="makers-grid"></div>
+        <p class="makers__note">These profiles honour living craft traditions and are illustrative composites.</p>
+      </div>
+    </section>
+
     <!-- ============ JOIN / NEWSLETTER ============ -->
     <section class="section join" id="join">
       <div class="container">
@@ -636,11 +712,19 @@
     <svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </button>
 
+  <div class="culture-modal" id="culture-modal" aria-hidden="true">
+    <div class="culture-modal__dialog" id="culture-modal-dialog" role="dialog" aria-modal="true" aria-label="Cultural story details">
+      <button class="culture-modal__close" id="culture-modal-close" type="button" aria-label="Close details">&times;</button>
+    </div>
+  </div>
+
   <!-- ============ SCRIPTS ============ -->
   <script src="js/main.js" defer></script>
   <script src="js/cultural-data.js" defer></script>
   <script src="js/india-map-data.js" defer></script>
   <script src="js/atlas.js" defer></script>
+  <script src="js/experience-data.js" defer></script>
+  <script src="js/experience.js" defer></script>
 </body>
 </html>
 
