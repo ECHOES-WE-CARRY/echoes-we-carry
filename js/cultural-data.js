@@ -1476,7 +1476,7 @@ var ECHOES_ATLAS = {
       music: "The pounding log-drums of the islands, the bamboo-tongued feasts and the sea-song of the Nicobari outrigger.",
       dance: "The spirit-dance of the Onge and the canoe songs of the island ring the new-moon nights.",
       dress: "The leaf-and-flower cloth of the island peoples and the chromed sarongs of Nicobar - dress tuned to the sea.",
-      beliefs: "The spirit-world of the islanders - the Great Mother and the Pudu- dream of the dead - and the Christian faith of the Christian Nicobar villages.",
+            beliefs: "The spirit-world of the islanders - the Great Mother and the dream of the ancestors - and the Christian faith of the Nicobar villages.",
       food: [
         { dish: "Fish and Coconut Rice", region: "Islands", description: "Grilled reef fish with coconut rice.", context: "The everyday sea-meal of the andamans." },
         { dish: "Nicobarese Ferments", region: "Nicobar", description: "Coconut toddy and smoked fish.", context: "The old kitchen of the islanders." }
@@ -1569,17 +1569,17 @@ var ECHOES_ATLAS = {
         { name: "Diu Fort", place: "Diu", type: "Fort", note: "The sea-fort held by the Lusitanian mainland." },
         { name: "Tribal huts of Dadra", place: "Silvassa", type: "Vernacular", note: "The bamboo homes with Warli-painted walls." }
       ],
-      arts: "The Warli wall-painting of the tribal belt of Silvassa, the shell-and Temple of the coast, and the festival stalls of the enclaves.",
+            arts: "The Warli wall-painting of the tribal belt of Silvassa, the shell-work of the coast and the festival stalls of the enclaves.",
       music: "The Portuguese fado's echo in the old church-song and the war-drum and song of the tribals of the enclave.",
-      dance: "The tribal dance of the Dhodia, Halpati and Koli of the enclave hills and the street-piss of the festivals.",
+            dance: "The tribal dance of the Dhodia, Halpati and Koli of the enclave hills and the street-plays of the festivals.",
       dress: "The tribal sarong and jewel of the Nagar Haveli, and the coastal sari of the Gujarati Daman.",
       beliefs: "The Catholic old-grain of Daman and Diu, the Hindu goddess shrines and the Warli spirits of Silvassa share the coconut shade.",
       food: [
         { dish: "Papad and millet rotli (bhakhri)", region: "Nagar Haveli", description: "The millet bread and pulse of the enclave.", context: "The rain-fed table of the tribal lands." },
-        { dish: "Fish Curries of Daman", region: "Daman", description: "Coastal fish in a vinegar-coconut rush.", context: "The Portuguese-Draf of the west coast." }
+                { dish: "Fish Curries of Daman", region: "Daman", description: "Coastal fish in a vinegar-coconut rush.", context: "The Portuguese legacy of the west coast." }
       ],
       festivals: [
-        { name: "Patrolb and the tribal Diwas", note: "The festival of the Adivasi heritage at Silvassa." },
+                { name: "Tribal Diwas", note: "The festival of the Adivasi heritage at Silvassa." },
         { name: "Nossa Senhora do Rosario", note: "The Daman church-feast of August." }
       ],
       crafts: [
@@ -1592,7 +1592,7 @@ var ECHOES_ATLAS = {
       ],
       thenNow: [
         { theme: "The wall-painted village", then: "Warli walls told the planted year.", now: "Warli now sells on canvas to the gallery.", note: "The wall moved from house to art." },
-        { theme: "The lighthouse", then: "The light marked the spice-coves.", now: "It marks the tourist deems.", note: "The beacon kept a twin trade." }
+                { theme: "The lighthouse", then: "The light marked the spice-coves.", now: "It greets the tourist now.", note: "The beacon kept a twin trade." }
       ],
       wonder: {
         type: "cultural",
@@ -1601,5 +1601,275 @@ var ECHOES_ATLAS = {
       }
     }
   },
-  /* __INSERT__ */
+  "dl": {
+    id: "dl", name: "Delhi", type: "Union Territory", region: "North",
+    capital: "New Delhi", languages: ["Hindi", "Urdu", "English", "Punjabi"],
+    preview: "Seven cities rise above the mounds of one - from Indraprastha through the Mughal and British capitals, Delhi carries the weight of every court and conqueror.",
+    profile: {
+      land: "A city-state on the Hindon-Yamuna confluence, the seventh Delhi built above six abandoned cities, ringed by the modern National Capital Region.",
+      history: [
+        { era: "Indraprastha to the Sultanate", span: "ancient - 12th c.", text: "The Mahabharata set its capital here; the Tomar and later the Khalji and Tughlaq sultans made Delhi the seat of northern India." },
+        { era: "The Mughal capital", span: "16th - 18th c.", text: "Akbar moved the imperial seat to Shahjahanabad; the Red Fort, Jama Masjid and the garden-tombs made the city the jewel of the empire." },
+        { era: "The British Raj", span: "1857 - 1947", text: "After the 1857 rising the capital was re-laid as New Delhi in Lutyens' grid of the Viceroy's House." },
+        { era: "The National Capital Territory", span: "1956 - present", text: "Delhi became the NCT in 1956, the seat of the Union government and the capital of modern India." }
+      ],
+      architecture: [
+        { name: "Qutb Minar", place: "Mehrauli", type: "Minaret", note: "The 72-metre iron-pillar tower of the first Sultan of Delhi." },
+        { name: "Red Fort", place: "Shahjahanabad", type: "Fort", note: "The 17th-century Mughal citadel, UNESCO World Heritage." },
+        { name: "Humayun's Tomb", place: "Nizamuddin", type: "Garden tomb", note: "The red-sandstone mausoleum that set the pattern for the Taj." },
+        { name: "India Gate", place: "New Delhi", type: "War memorial", note: "The martyrs' arch of the national capital." }
+      ],
+      arts: "The National Gallery of Modern Art gathers India's modern canon while the bahi-khulasa miniatures and the National Handloom keep traditional craft alive.",
+      music: "The qawwali of Nizamuddin, the Delhi gharana of classical song and the cafes humming from Connaught to Mehrauli.",
+      dance: "The Ramlila staged at the Ram Lila Maidan fills winter with the epic, and the Ghoomar travels from Rajasthan to the capital stages.",
+      dress: "The designer bridal trousseau now sits beside the traditional salwar-kameez and the wedding pagri of the north.",
+      beliefs: "Hindu, Islamic, Sikh and Jain shrines share the bazaar; the Jama Masjid, Akshardham, Gurdwara Bangla Sahib and the ancient Yogmaya temple stand within a mile.",
+      food: [
+        { dish: "Delhi Chaat", region: "Chandni Chowk", description: "Tangy fried bread and spiced potatoes with tamarind and coriander.", context: "The breakfast of the old city lanes." },
+        { dish: "Butter Chicken", region: "Daryaganj", description: "Tandoori chicken in a tomato-cream gravy.", context: "The comfort food of the capital." },
+        { dish: "Nihari", region: "Old Delhi", description: "Slow-cooked spiced stew of beef or lamb.", context: "The dawn breakfast of the Nawabs." }
+      ],
+      festivals: [
+        { name: "Diwali in Chandni Chowk", note: "The City of Lights along the historic lanes." },
+        { name: "Eid at Jama Masjid", note: "The courtyard fills with the Friday prayer." }
+      ],
+      crafts: [
+        { craft: "Jutti embroidery", place: "Chandni Chowk", note: "The embroidered leather shoe of the Punjabi bazaar." },
+        { craft: "Blue pottery", place: "Delhi", note: "The glazed earthenware of the capital's potters." }
+      ],
+      heritage: [
+        { site: "Qutb Minar", type: "UNESCO World Heritage", note: "The victory tower of the Sultanate." },
+        { site: "Red Fort", type: "UNESCO World Heritage", note: "The walled Mughal capital." },
+        { site: "Humayun's Tomb", type: "UNESCO World Heritage", note: "The garden-tomb that taught the Taj." }
+      ],
+      thenNow: [
+        { theme: "The walled city", then: "Shahjahanabad was a maze of gates and caravanserais.", now: "Its food lanes feed the street-capital of India.", note: "The past feeds the present." },
+        { theme: "The imperial seat", then: "The Viceroy's House held the Raj.", now: "It is the home of the President of India.", note: "The throne changed hands but the seat stayed." }
+      ],
+      wonder: {
+        type: "cultural",
+        title: "Humayun's Tomb, New Delhi",
+        note: "The red sandstone mausoleum that taught the Taj how to rise - the wonder we carry is a garden that taught stone to remember love."
+      }
+    }
+  },
+  "jk": {
+    id: "jk", name: "Jammu and Kashmir", type: "Union Territory", region: "North",
+    capital: "Srinagar (summer), Jammu (winter)", languages: ["Urdu", "Kashmiri", "Dogri", "Hindi", "English"],
+    preview: "The sapphire vale ringed by the Pir Panjal and the Greater Himalaya - orchards, shikaras and pashmina prayer-flags at the spine of the world.",
+    profile: {
+      land: "The Kashmir Valley cupped by the Himalaya, the high plateau of Jammu and the passes that fall to the Punjab border.",
+      history: [
+        { era: "The Buddhist valley", span: "ancient - 7th c.", text: "The Rajatarangini chronicles Buddhist kingdoms of the Kushan and the Hindu-Shahi across the vale." },
+        { era: "The Islamic Sultanate", span: "13th - 16th c.", text: "The first Muslim sultans arrived in the 13th century; the shrines of Sharif and the syncretic Kashmiriyat shaped the valley." },
+        { era: "The Dogra state", span: "1846 - 1947", text: "The Treaty of Amritsar raised Gulab Singh as Maharaja; the Dogra sword held the mountain passes." },
+        { era: "The princely accession", span: "1947", text: "The ruler signed the instrument of accession; the 1949 ceasefire fixed the Line of Control." },
+        { era: "To a Union Territory", span: "2019 - present", text: "The abrogation of Article 370 re-organised the state into two Union Territories." }
+      ],
+      architecture: [
+        { name: "Shankaracharya Temple", place: "Srinagar", type: "Hindu temple", note: "The hill-temple commanding the Dal Lake." },
+        { name: "Hazratbal Sharif", place: "Srinagar", type: "Shrine", note: "The shrine of the sacred hair of the Prophet." },
+        { name: "Mughal Gardens", place: "Srinagar", type: "Garden", note: "The terraces of Shalimar, Nishat and Achabal." },
+        { name: "Pari Mahal", place: "Srinagar", type: "Mughal garden", note: "The fairy-garden set in the Chinar lane." }
+      ],
+      arts: "The pashmina shawl, the papier-mache of Srinagar, the crewel embroidery of the Kashida and the walnut-wood carving keep the valley's hands busy.",
+      music: "The Sufi songs of the Sharif shrine, the Kawa ballads of the shepherd and the folk-strings of the Ganderbal pass.",
+      dance: "The Rauf and Lasan spring dance of the village, the Chaliya harvest circle and the boat-song of the Dal.",
+      dress: "The pheran wrapped with the kangri warmer, the pagri of the village headman and the embroidered caps of the court.",
+      beliefs: "The Kashmir Shaivism of Abhinavagupta, the Sufi shrines of the Naqashbandi, the Hindu Pandit homes and the Islamic mosques share the same lane.",
+      food: [
+        { dish: "Rogan Josh", region: "Valley", description: "A slow-cooked lamb curry in Kashmiri chilies and yogurt.", context: "The hearth-dish of every Kashmiri home." },
+        { dish: "Gushtaba", region: "Wazwan", description: "A bowl of spiced yogurt with fried meatballs.", context: "The closing course of the feast." },
+        { dish: "Kahwa", region: "Kashmir", description: "Green tea with saffron, almonds and cinnamon.", context: "The cup of the morning chill." }
+      ],
+      festivals: [
+        { name: "Amarnath Yatra", note: "The ice-Shiva shrine of the high Himalaya." },
+        { name: "Eid at Jama Masjid", note: "The courtyard prayer of the faithful." },
+        { name: "Rauf Spring Dance", note: "The village flower-dance on the first warm day." }
+      ],
+      crafts: [
+        { craft: "Pashmina weaving", place: "Srinagar", note: "The goat-down shawl of the high passes." },
+        { craft: "Papier-mache", place: "Srinagar", note: "The lacquer-bright boxes of the old city." },
+        { craft: "Kashida embroidery", place: "Valley", note: "The crewel-thread of the shawl and the cap." }
+      ],
+      heritage: [
+        { site: "Shankaracharya Temple", type: "Ancient temple", note: "The Hindu hill-shrine of the valley." },
+        { site: "Hazratbal Sharif", type: "Sufi shrine", note: "The sacred relic of the Prophet." },
+        { site: "Mughal Gardens", type: "UNESCO tentative", note: "The Chinar avenues and the water channels." }
+      ],
+      thenNow: [
+        { theme: "The houseboat", then: "The shikara and the gilded houseboat plied the Dal.", now: "The houseboats still float, now a heritage stay.", note: "The lake keeps its floating homes." },
+        { theme: "The pashmina", then: "The shawl was wrapped for the Mughal court.", now: "It drapes the modern runway.", note: "The thread has travelled far." }
+      ],
+      wonder: {
+        type: "natural",
+        title: "Dal Lake, Srinagar",
+        note: "A bowl of water edged with Chinar trees and shikaras like petals - the wonder we carry is a lake that holds the reflection of the world."
+      }
+    }
+  },
+  "la": {
+    id: "la", name: "Ladakh", type: "Union Territory", region: "West",
+    capital: "Leh", languages: ["Urdu", "Bhoti", "Sanskrit", "Hindi", "English"],
+    preview: "The high-altitude desert at the roof of the world - prayer-flags over turquoise lakes, the monastery drum and the taste of apricot in the thin air.",
+    profile: {
+      land: "A cold desert of the upper Indus at ten to eighteen thousand feet, where the Changthang, Nubra and Zanskar valleys meet the Tibetan plateau.",
+      history: [
+        { era: "The Buddhist kingdoms", span: "10th - 15th c.", text: "The Namgyal kings of Leh raised the gompas and held the silk road to Tibet." },
+        { era: "Mughal and the passes", span: "16th - 18th c.", text: "Akbar's armies marched but the mountain held; the trade with Yarkand flowed." },
+        { era: "The modern border", span: "1962 - present", text: "The Sino-Indian border runs through Ladakh; it became a Union Territory in 2019." },
+        { era: "The opening", span: "1993 - present", text: "The 1993 insurgency opened the valleys; the trek and tourist route now thread the passes." }
+      ],
+      architecture: [
+        { name: "Hemis Monastery", place: "Hemis", type: "Gompa", note: "The red-and-white cliff monastery of the Drukpa order." },
+        { name: "Thiksey Monastery", place: "Leh", type: "Gompa", note: "The tiered cliff-monastery facing the Indus." },
+        { name: "Alchi Monastery", place: "Alchi", type: "Gompa", note: "The 11th-century wall-paintings of the silent valley." },
+        { name: "Diskit Monastery", place: "Nubra", type: "Gompa", note: "The sand-duned monastery of the high road." }
+      ],
+      arts: "The thanka and thangka paintings, the Cham ritual masks, the mani stones and the prayer-wheel carvings of the high gompa.",
+      music: "The dholak drums of the monastery, the singing bowls and the folk-songs of the herder on the Changthang.",
+      dance: "The Cham masked monastery dance, the Losar new-year circle and the Ladakh Festival of colour.",
+      dress: "The goncha wrapped tight against the wind, the women's perak apron and the khatag scarf of the prayer.",
+      beliefs: "Tibetan Buddhism of the Vajrayana, the drum of the monastery, the mani wheel and the guru Rinpoche's path.",
+      food: [
+        { dish: "Thukpa", region: "Leh", description: "A noodle soup with vegetables and chilli.", context: "The steaming bowl of the high night." },
+        { dish: "Momo", region: "Leh bazaar", description: "Steamed or fried dumplings of meat and cabbage.", context: "The bazaar snack of the pass." },
+        { dish: "Butter tea", region: "Gompa", description: "Black tea churned with yak butter and salt.", context: "The warmth of the high morning." }
+      ],
+      festivals: [
+        { name: "Hemis Tsechu", note: "The masked Cham dance festival of the monastery." },
+        { name: "Losar", note: "The Buddhist new-year of prayer-flags and butter." },
+        { name: "Ladakh Festival", note: "The high-altitude fair of music, mask and dance." }
+      ],
+      crafts: [
+        { craft: "Thangka painting", place: "Leh", note: "The sacred canvas of the monk." },
+        { craft: "Mani stones", place: "Leh", note: "The carved prayer-slip of the mountain." },
+        { craft: "Apricot wood", place: "Zanskar", note: "The carved spoon and bowl of the orchard." }
+      ],
+      heritage: [
+        { site: "Pangong Tso", type: "High lake", note: "The blue-high salt lake at the border." },
+        { site: "Khardung La", type: "Mountain pass", note: "The high road to the Karakoram." },
+        { site: "Nubra Valley", type: "Valley", note: "The sand-dune and the double-humped camel." }
+      ],
+      thenNow: [
+        { theme: "The trade road", then: "The silk and salt caravan crossed the high passes.", now: "The trek-route and the airport carry the traffic.", note: "The road kept its purpose." },
+        { theme: "The monastery", then: "The gompa was sanctuary and school.", now: "It is shrine, museum and guesthouse.", note: "The bell still rings." }
+      ],
+      wonder: {
+        type: "natural",
+        title: "Pangong Tso",
+        note: "A ribbon of liquid sky so blue it seems the horizon folded into the water - the wonder we carry is a lake that holds a piece of heaven."
+      }
+    }
+  },
+  "ld": {
+    id: "ld", name: "Lakshadweep", type: "Union Territory", region: "South",
+    capital: "Kavaratti", languages: ["Malayalam", "English"],
+    preview: "Fifty-seven atolls strung across the Arabian Sea like a rosary of coral - the dhow, the tuna and the blue of the lagoon beyond telling.",
+    profile: {
+      land: "An arc of coral atolls rising barely five metres above the Indian Ocean, from the reef of Kavaratti to the blue of Bangaram.",
+      history: [
+        { era: "The ancient sea-road", span: "ancient - 13th c.", text: "The Laccadive archipelago was a link in the spice and cowrie route of the Arabian Sea." },
+        { era: "The Buddhist past", span: "early centuries CE", text: "The atolls knew the Buddhist trader and the Jain before the arrival of Islam." },
+        { era: "British and renaming", span: "19th - 20th c.", text: "The British listed the islands; 1956 made them a Union Territory, 1973 renamed them Lakshadweep." },
+        { era: "The modern atoll", span: "1970s - present", text: "The telecom tower and the airstrip brought the mainland; the coral is fiercely protected." }
+      ],
+      architecture: [
+        { name: "Kavaratti Lighthouse", place: "Kavaratti", type: "Lighthouse", note: "The white tower on the reef of the capital." },
+        { name: "Coral mosque", place: "Kavaratti", type: "Coral architecture", note: "The mosque hewn from living coral." },
+        { name: "Island houses", place: "Agatti", type: "Coral-stone", note: "The white-washed homes on stilts above the tide." }
+      ],
+      arts: "The coconut-shell carving, the thari woven mat and the dhow-prow motifs of the boat-maker's paint.",
+      music: "The oar-chant of the lagoon, the boat-song of the tuna-diver and the low drum of the atoll evening.",
+      dance: "The Lotti of the women's circle and the joy-dance of the coconut-frond stage.",
+      dress: "The mundu and the white-drape of the men, the thari-border of the women and the sea-woven cloth.",
+      beliefs: "The island is overwhelmingly Muslim; the mosque of Kavaratti calls the faithful to the five prayers beside the Hindu shrine of the old trade.",
+      food: [
+        { dish: "Tuna Moilee", region: "Atolls", description: "Tuna in a coconut-milk and tamarind gravy.", context: "The fish of the blue bowl." },
+        { dish: "Appam", region: "Lakshadweep", description: "The lacy bowl-shaped rice hoppers.", context: "The breakfast of the coconut shore." },
+        { dish: "Pazham pori", region: "Islands", description: "Fried plantain with the local banana.", context: "The sweet stop of the market." }
+      ],
+      festivals: [
+        { name: "Onam", note: "The harvest-flower boat-festival of the Kerala tide." },
+        { name: "Eid al-Fitr", note: "The moon-fast and the island feast of the faithful." },
+        { name: "Kavarakite Festival", note: "The annual boat and cultural race of the capital." }
+      ],
+      crafts: [
+        { craft: "Coconut-shell craft", place: "Islands", note: "The spoon, cup and lamp carved from the palm." },
+        { craft: "Thari mat-weaving", place: "Kavaratti", note: "The hand-plaited coconut-fibre mat." },
+        { craft: "Dhow model", place: "Agatti", note: "The miniature sail of the traditional boat." }
+      ],
+      heritage: [
+        { site: "Bangaram Atoll", type: "Marine park", note: "The uninhabited atoll ringed by coral." },
+        { site: "Minicoy Atoll", type: "Atoll", note: "The crescent atoll at the tip of the archipelago." },
+        { site: "Lighthouse of Kavaratti", type: "Lighthouse", note: "The keeper's tower of the coral capital." }
+      ],
+      thenNow: [
+        { theme: "The dhow", then: "The lateen-sailed dhow carried the tuna and the coir to the Arabian shore.", now: "The speed-boat and the helicopter link the atolls to the mainland.", note: "The water road became the sky road." },
+        { theme: "The coral", then: "The reef fed the island with fish and the shore.", now: "It is the protected garden that the tourist comes to see.", note: "The reef stays, the visitor grows." }
+      ],
+      wonder: {
+        type: "natural",
+        title: "The Coral Reef of Bangaram",
+        note: "A ring of living coral so clear you see the fish in another world - the wonder we carry is an atoll that holds the sea inside itself."
+      }
+    }
+  },
+  "py": {
+    id: "py", name: "Puducherry", type: "Union Territory", region: "South",
+    capital: "Puducherry", languages: ["Tamil", "French (historical)", "English"],
+    preview: "Yellow houses behind a temple tank, the scent of jasmine and cardamom - the French enclave where Tamil prayers meet the Aurobindo dawn.",
+    profile: {
+      land: "A small French enclave on the Coromandel coast, a town of colonial villas shaded by bougainvillea behind the old port and the fishing hamlet of Paradise.",
+      history: [
+        { era: "The French factory", span: "1674 - 1742", text: "The French East India Company set a factory; the town grew behind the Fort-Louis." },
+        { era: "The Fort and the garden", span: "1742 - 1954", text: "The French quarter of yellow bungalows and the ashram-garden of Sri Aurobindo took root." },
+        { era: "The return to India", span: "1954 - 1962", text: "The de-facto transfer of 1954; the deed of cession took effect in 1962, when Puducherry became a Union Territory." },
+        { era: "The ashram town", span: "1962 - present", text: "The Sri Aurobindo Ashram and the experimental township of Auroville keep the town the place of the spirit." }
+      ],
+      architecture: [
+        { name: "Sri Aurobindo Ashram", place: "Puducherry", type: "Ashram", note: "The white veranda house of the seer-poet." },
+        { name: "Matrimandir", place: "Auroville", type: "Spiritual centre", note: "The golden lotus temple of the earth." },
+        { name: "Basilica of Our Lady of Good Health", place: "Puducherry", type: "Church", note: "The white basilica on the tank of the old port." },
+        { name: "Rue Suffren", place: "Puducherry", type: "Colonial street", note: "The shaded boulevard of the yellow town." },
+        { name: "Manakula Vinayagar Temple", place: "Puducherry", type: "Hindu temple", note: "The gateway temple of the old harbour." }
+      ],
+      arts: "The Aurobindo Ashram's literary circle and the hand-block prints of Auroville's artisans, the Tamil temple-bronze and the French balcony ironwork.",
+      music: "The Tamil folk of the Coromandel coast, the Carnatic ragas of the temple and the cafe accordion of the boulevard.",
+      dance: "The Bharatanatyam of the temple tank, the folk-dance of the fishing village and the recital of the ashram auditorium.",
+      dress: "The white drape of the ashram, the mourner-colour sari of the Tamil woman and the linen of the French bungalow.",
+      beliefs: "Hinduism of the Tamil coast, Catholicism of the French, the yoga of Sri Aurobindo and the quiet dawn of the Auroville commune.",
+      food: [
+        { dish: "Tamil Meals", region: "Puducherry", description: "The vegetarian platter of rice, curry, pickle and papad.", context: "The noon square of the town." },
+        { dish: "Pongal", region: "Tamil", description: "The soft rice and lentil dish with ghee and pepper.", context: "The breakfast of the kitchen." },
+        { dish: "French Cafe", region: "Rue Suffren", description: "The croissant and cafe au lait of the colonial morning.", context: "The morning ritual of the boulevard." }
+      ],
+      festivals: [
+        { name: "Pongal", note: "The Tamil harvest-festival of the rice and the sun." },
+        { name: "Our Lady of Good Health", note: "The September feast of the coast." },
+        { name: "Auroville Foundation Day", note: "The birthday of the experimental township." }
+      ],
+      crafts: [
+        { craft: "Auroville hand-block print", place: "Auroville", note: "The naturally-dyed cottons of the commune." },
+        { craft: "French bungalow ironwork", place: "Puducherry", note: "The wrought balcony of the colonial town." },
+        { craft: "Palm-leaf craft", place: "Coromandel", note: "The coiled and braided work of the palm." }
+      ],
+      heritage: [
+        { site: "Sri Aurobindo Ashram", type: "Ashram", note: "The house of the seer-poet." },
+        { site: "Auroville Township", type: "Experimental town", note: "The golden temple-town of the future." },
+        { site: "French Quarters", type: "UNESCO World Heritage", note: "The yellow bungalow and the shaded boulevard." }
+      ],
+      thenNow: [
+        { theme: "The colonial town", then: "The yellow bungalows looked onto the sea.", now: "They open as cafes and boutique-heritage hotels.", note: "The past leases to the present." },
+        { theme: "The ashram", then: "The ashram drew the seeker to the dawn walk.", now: "It is museum and quiet centre.", note: "The silence kept its address." }
+      ],
+      wonder: {
+        type: "cultural",
+        title: "The Matrimandir, Auroville",
+        note: "A golden lotus of twelve petals holding the earth within light - the wonder we carry is a temple that grows the future from silence."
+      }
+    }
+    }
+
 };
+

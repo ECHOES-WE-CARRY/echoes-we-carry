@@ -1,0 +1,22 @@
+== project files ==
+c:\Users\Admin\echoes-we-carry\index.html
+c:\Users\Admin\echoes-we-carry\js\atlas.js
+c:\Users\Admin\echoes-we-carry\js\cultural-data.js
+c:\Users\Admin\echoes-we-carry\js\india-map-data.js
+c:\Users\Admin\echoes-we-carry\js\main.js
+
+== profile count: 36 ==
+tn ap ar as br cg ga gj hr hp jh ka kl mp mh mn ml mz nl od pb rj sk tg tr up uk wb an ch dd dl jk la ld py
+
+== map path count: 37 ==
+an ap ar as br cg ch dd dd dl ga gj hp hr jh jk ka kl la ld mh ml mn mp mz nl od pb py rj sk tg tn tr uk up wb
+
+== profiles WITHOUT a map path ==
+
+
+== map paths WITHOUT a profile ==
+
+
+== ALL_PROFILE_SECTIONS_OK ==
+
+== done ==
