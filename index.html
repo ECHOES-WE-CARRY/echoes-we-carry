@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/experience.css" />
   <link rel="stylesheet" href="css/refinement.css" />
   <link rel="stylesheet" href="css/phase4.css" />
+  <link rel="stylesheet" href="css/phase5.css" />
 </head>
 
 <body id="top">
@@ -63,8 +64,9 @@
           <li><a href="#vault" class="nav-link"><span data-text="The Vault">The Vault</span></a></li>
           <li><a href="#echoes" class="nav-link"><span data-text="Echoes">Echoes</span></a></li>
           <li><a href="#journal" class="nav-link"><span data-text="Journal">Journal</span></a></li>
+          <li><a href="#story" class="nav-link"><span data-text="Your Story">Your Story</span></a></li>
         </ul>
-        <a href="#join" class="btn btn-primary nav__cta">
+        <a href="#story" class="btn btn-primary nav__cta">
           <span>Begin Your Story</span>
           <svg class="icon btn-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
         </a>
@@ -93,7 +95,8 @@
         <li style="--i:8"><a href="#vault" class="mobile-link"><span class="mobile-link__num">09</span><span class="mobile-link__txt">The Vault</span></a></li>
         <li style="--i:9"><a href="#echoes" class="mobile-link"><span class="mobile-link__num">10</span><span class="mobile-link__txt">Echoes</span></a></li>
         <li style="--i:10"><a href="#journal" class="mobile-link"><span class="mobile-link__num">11</span><span class="mobile-link__txt">Journal</span></a></li>
-        <li style="--i:11"><a href="#join" class="mobile-link"><span class="mobile-link__num">12</span><span class="mobile-link__txt">Begin Your Story</span></a></li>
+        <li style="--i:11"><a href="#join" class="mobile-link"><span class="mobile-link__num">12</span><span class="mobile-link__txt">The Correspondence</span></a></li>
+        <li style="--i:12"><a href="#story" class="mobile-link"><span class="mobile-link__num">13</span><span class="mobile-link__txt">Begin Your Story</span></a></li>
       </ul>
     </nav>
   </div>
@@ -879,6 +882,270 @@
         </div>
       </div>
     </section>
+<!-- ============ PHASE 5 · BEGIN YOUR STORY ============ -->
+    <section class="bys" id="story" aria-label="Begin Your Story - build the cultural journey you will carry">
+      <div class="bys__bg" aria-hidden="true">
+        <div class="bys__aurora"></div>
+        <div class="bys__grain"></div>
+        <svg class="bys__motif" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g fill="none" stroke="currentColor">
+            <circle cx="400" cy="400" r="330" opacity="0.35" />
+            <circle cx="400" cy="400" r="255" opacity="0.26" />
+            <circle cx="400" cy="400" r="180" opacity="0.18" />
+            <circle cx="400" cy="400" r="105" opacity="0.12" />
+            <path d="M400 70 a 200 200 0 0 1 200 200 l -400 0 a 200 200 0 0 1 200 -200 Z" opacity="0.4" />
+            <path d="M400 70 a 200 200 0 0 1 200 200 l -400 0 a 200 200 0 0 1 200 -200 Z" opacity="0.25" transform="rotate(45 400 400)" />
+            <path d="M400 70 a 200 200 0 0 1 200 200 l -400 0 a 200 200 0 0 1 200 -200 Z" opacity="0.25" transform="rotate(90 400 400)" />
+            <path d="M400 70 a 200 200 0 0 1 200 200 l -400 0 a 200 200 0 0 1 200 -200 Z" opacity="0.25" transform="rotate(135 400 400)" />
+            <circle cx="400" cy="400" r="7" fill="currentColor" stroke="none" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- 0 · Cinematic intro -->
+      <header class="bys-hero" id="bys-hero">
+        <div class="container bys-hero__inner">
+          <p class="bys-eyebrow"><span class="bys-eyebrow__line" aria-hidden="true"></span>Phase Five &middot; The Finale</p>
+          <h1 class="bys-hero__title">Begin Your <em>Story</em></h1>
+          <p class="bys-hero__subtitle">You have explored the echoes.<br /><strong>Now choose the one you will carry.</strong></p>
+
+          <div class="bys-hero__capsule" aria-hidden="true">
+            <span data-cap="region">Region</span><i></i>
+            <span data-cap="tradition">Tradition</span><i></i>
+            <span data-cap="craft">Craft</span><i></i>
+            <span data-cap="sound">Sound</span><i></i>
+            <span data-cap="story">Story</span>
+          </div>
+
+          <button class="bys-btn bys-btn--gold bys-begin" id="bys-begin" type="button">
+            <span>Begin the journey</span>
+            <svg class="icon bys-begin__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="bys-hero__hint">Five choices, one golden thread, and the story only you can carry.</p>
+        </div>
+      </header>
+
+      <!-- 1·5 The journey board -->
+      <div class="bys-journey" id="bys-journey">
+        <div class="bys-rail" id="bys-rail" aria-hidden="true">
+          <svg class="bys-thread" id="bys-thread" viewBox="0 0 100 1000" preserveAspectRatio="none" focusable="false">
+            <path id="bys-path" class="bys-thread__path" pathLength="100" stroke-dasharray="100 100" d=""/>
+            <path id="bys-path-glow" class="bys-thread__glow" pathLength="100" d=""/>
+          </svg>
+          <i class="bys-thread__particle" data-i="0"></i>
+          <i class="bys-thread__particle" data-i="1"></i>
+          <i class="bys-thread__particle" data-i="2"></i>
+          <i class="bys-thread__particle" data-i="3"></i>
+          <i class="bys-thread__particle" data-i="4"></i>
+          <i class="bys-thread__particle" data-i="5"></i>
+        </div>
+
+        <!-- progress stepper -->
+        <nav class="bys-stepper" id="bys-stepper" aria-label="The five chapters of your journey">
+          <button type="button" class="bys-stepper__item" data-goto="region" aria-current="true">
+            <span class="bys-stepper__num">01</span><span class="bys-stepper__label">Region</span>
+            <span class="bys-stepper__pick" data-stepper-pick="region"></span>
+          </button>
+          <button type="button" class="bys-stepper__item" data-goto="tradition">
+            <span class="bys-stepper__num">02</span><span class="bys-stepper__label">Tradition</span>
+            <span class="bys-stepper__pick" data-stepper-pick="tradition"></span>
+          </button>
+          <button type="button" class="bys-stepper__item" data-goto="craft">
+            <span class="bys-stepper__num">03</span><span class="bys-stepper__label">Craft</span>
+            <span class="bys-stepper__pick" data-stepper-pick="craft"></span>
+          </button>
+          <button type="button" class="bys-stepper__item" data-goto="sound">
+            <span class="bys-stepper__num">04</span><span class="bys-stepper__label">Sound</span>
+            <span class="bys-stepper__pick" data-stepper-pick="sound"></span>
+          </button>
+          <button type="button" class="bys-stepper__item" data-goto="story">
+            <span class="bys-stepper__num">05</span><span class="bys-stepper__label">Story</span>
+            <span class="bys-stepper__pick" data-stepper-pick="story"></span>
+          </button>
+        </nav>
+<!-- CHAPTER 1 · REGION -->
+        <article class="bys-step" id="bys-step-region" data-step="region" aria-labelledby="bys-step-region-h">
+          <div class="container bys-step__inner">
+            <p class="bys-step__num">Chapter 01</p>
+            <h2 class="bys-step__title" id="bys-step-region-h">Choose the region <em>whose earth you know.</em></h2>
+            <p class="bys-step__lede">Light a state on the map. Everything you carry from here begins on that ground — its sky, its looms, its songs.</p>
+
+            <div class="bys-region-stage">
+              <figure class="bys-region-map" id="bys-region-map" aria-label="Map of India — choose a region to carry"></figure>
+              <div class="bys-region-chips" id="bys-region-chips" role="group" aria-label="Choose a region from the list"></div>
+            </div>
+
+            <div class="bys-selected" id="bys-sel-region" role="status" aria-live="polite"></div>
+
+            <div class="bys-step__actions">
+              <button class="bys-btn bys-btn--ghost" type="button" data-back="region" disabled>Back</button>
+              <button class="bys-btn bys-btn--gold bys-next" type="button" data-next="tradition" disabled>
+                <span>Carry this forward</span>
+                <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CH 2 · TRADITION -->
+        <article class="bys-step" id="bys-step-tradition" data-step="tradition" aria-labelledby="bys-step-tradition-h">
+          <div class="container bys-step__inner">
+            <p class="bys-step__num">Chapter 02</p>
+            <h2 class="bys-step__title" id="bys-step-tradition-h">Choose the <em>tradition</em> that moves you.</h2>
+            <p class="bys-step__lede">From <span class="bys-step__lede-strong" data-lede="region">your region</span>, these are the living practices — dance, music, festival. Pick the one you would carry with you.</p>
+
+            <div class="bys-options bys-options--cards" id="bys-options-tradition" role="group" aria-label="Choose a tradition"></div>
+
+            <div class="bys-selected" id="bys-sel-tradition" role="status" aria-live="polite"></div>
+
+            <div class="bys-step__actions">
+              <button class="bys-btn bys-btn--ghost" type="button" data-back="tradition">Back</button>
+              <button class="bys-btn bys-btn--gold bys-next" type="button" data-next="craft" disabled>
+                <span>Keep this tradition</span>
+                <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CH 3 · CRAFT -->
+        <article class="bys-step" id="bys-step-craft" data-step="craft" aria-labelledby="bys-step-craft-h">
+          <div class="bys-weave" aria-hidden="true"><span class="bys-weave__thread"></span><span class="bys-weave__thread bys-weave__thread--2"></span></div>
+          <div class="container bys-step__inner">
+            <p class="bys-step__num">Chapter 03</p>
+            <h2 class="bys-step__title" id="bys-step-craft-h">Choose the <em>craft</em> you will hold.</h2>
+            <p class="bys-step__lede">Each object carries a place in its grain and glaze. Choose one to add its texture to your thread.</p>
+
+            <div class="bys-options bys-options--cards" id="bys-options-craft" role="group" aria-label="Choose a craft"></div>
+
+            <div class="bys-selected" id="bys-sel-craft" role="status" aria-live="polite"></div>
+
+            <div class="bys-step__actions">
+              <button class="bys-btn bys-btn--ghost" type="button" data-back="craft">Back</button>
+              <button class="bys-btn bys-btn--gold bys-next" type="button" data-next="sound" disabled>
+                <span>Thread the craft in</span>
+                <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CH 4 · SOUND -->
+        <article class="bys-step" id="bys-step-sound" data-step="sound" aria-labelledby="bys-step-sound-h">
+          <div class="container bys-step__inner">
+            <p class="bys-step__num">Chapter 04</p>
+            <h2 class="bys-step__title" id="bys-step-sound-h">Choose the <em>sound</em> that lingers.</h2>
+            <p class="bys-step__lede">A rhythm from your region — or an echo from across India. Tap a card to hear a synthesised whisper, then choose.</p>
+
+            <div class="bys-options bys-options--sounds" id="bys-options-sound" role="group" aria-label="Choose a sound"></div>
+
+            <div class="bys-selected" id="bys-sel-sound" role="status" aria-live="polite"></div>
+
+            <div class="bys-step__actions">
+              <button class="bys-btn bys-btn--ghost" type="button" data-back="sound">Back</button>
+              <button class="bys-btn bys-btn--gold bys-next" type="button" data-next="story" disabled>
+                <span>Keep this rhythm</span>
+                <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CH 5 · STORY -->
+        <article class="bys-step" id="bys-step-story" data-step="story" aria-labelledby="bys-step-story-h">
+          <div class="container bys-step__inner">
+            <p class="bys-step__num">Chapter 05</p>
+            <h2 class="bys-step__title" id="bys-step-story-h">Choose the <em>story</em> you will tell.</h2>
+            <p class="bys-step__lede">These are the echoes we have met on this site. The one you choose becomes the heart of what you carry.</p>
+
+            <div class="bys-options bys-options--cards" id="bys-options-story" role="group" aria-label="Choose a story"></div>
+
+            <div class="bys-selected" id="bys-sel-story" role="status" aria-live="polite"></div>
+
+            <div class="bys-step__actions">
+              <button class="bys-btn bys-btn--ghost" type="button" data-back="story">Back</button>
+              <a class="bys-btn bys-btn--gold bys-next bys-next--link" id="bys-seal" href="#your-echo" aria-disabled="true" tabindex="-1">
+                <span>Seal your echo</span>
+                <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <p class="bys-thread__truth" aria-hidden="true">“What we inherit, we carry forward.”</p>
+      </div>
+    </section>
+<!-- ============ YOUR ECHO — THE HERITAGE CARD ============ -->
+    <section class="bys-echo" id="your-echo" aria-label="Your Echo - the heritage card of your journey">
+      <div class="bys-echo__bg" aria-hidden="true">
+        <div class="bys-echo__glow"></div>
+        <div class="bys-echo__grain"></div>
+      </div>
+      <div class="container bys-echo__inner">
+        <p class="bys-eyebrow bys-eyebrow--center"><span class="bys-eyebrow__line" aria-hidden="true"></span>Your Journey, Sealed<span class="bys-eyebrow__line" aria-hidden="true"></span></p>
+
+        <div class="bys-echocard" id="bys-echocard" aria-live="polite">
+          <div class="bys-echocard__head">
+            <span class="bys-echocard__mark" aria-hidden="true"><svg viewBox="0 0 40 44" class="icon"><path d="M20 2 C 20 10, 9 14, 9 26 A 11 11 0 0 0 31 26 C 31 14, 20 10, 20 2 Z"/><path d="M20 16 v 24 M20 40 l-5 -6 M20 40 l5 -6"/></svg></span>
+            <div>
+              <p class="bys-echocard__kicker">Bearer of the thread</p>
+              <h2 class="bys-echocard__title">Your Echo</h2>
+              <p class="bys-echocard__sub">A cultural passport to the story you now carry</p>
+            </div>
+            <span class="bys-echocard__no">№&nbsp;<span id="bys-card-no">001</span></span>
+          </div>
+
+          <div class="bys-echocard__rows" id="bys-card-rows">
+            <div class="bys-echocard__row" data-row="region"><span class="bys-echocard__k">Region</span><span class="bys-echocard__v" id="bys-val-region">—</span></div>
+            <div class="bys-echocard__row" data-row="tradition"><span class="bys-echocard__k">Tradition</span><span class="bys-echocard__v" id="bys-val-tradition">—</span></div>
+            <div class="bys-echocard__row" data-row="craft"><span class="bys-echocard__k">Craft</span><span class="bys-echocard__v" id="bys-val-craft">—</span></div>
+            <div class="bys-echocard__row" data-row="sound"><span class="bys-echocard__k">Sound</span><span class="bys-echocard__v" id="bys-val-sound">—</span></div>
+            <div class="bys-echocard__row" data-row="story"><span class="bys-echocard__k">Story</span><span class="bys-echocard__v" id="bys-val-story">—</span></div>
+          </div>
+
+          <blockquote class="bys-echocard__statement" id="bys-card-statement"></blockquote>
+
+          <footer class="bys-echocard__foot">
+            <button type="button" class="bys-btn bys-btn--ghost" id="bys-restart">START AGAIN</button>
+            <a class="bys-btn bys-btn--gold" href="#atlas">EXPLORE MORE
+              <svg class="icon bys-next__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </a>
+          </footer>
+
+          <p class="bys-echocard__note">Created in your browser · Echoes We Carry · भारत</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT WILL YOU CARRY · FINALE ============ -->
+    <section class="bys-carry" id="carry" aria-label="What will you carry - the final message">
+      <div class="bys-carry__grain" aria-hidden="true"></div>
+
+      <div class="bys-carry__scene" id="bys-carry-scene">
+        <p class="bys-carry__eyebrow">The last chapter</p>
+        <h2 class="bys-carry__question">What will you<br /><em>carry?</em></h2>
+
+        <div class="bys-carry__reveal" id="bys-carry-reveal" role="status" aria-live="polite">
+          <span class="bys-carry__word" data-word="A tradition.">A tradition.</span>
+          <span class="bys-carry__word" data-word="A story.">A story.</span>
+          <span class="bys-carry__word" data-word="A song.">A song.</span>
+          <span class="bys-carry__word" data-word="A craft.">A craft.</span>
+          <span class="bys-carry__word" data-word="A memory.">A memory.</span>
+        </div>
+
+        <figure class="bys-carry__thread" id="bys-carry-thread" aria-label="A golden thread forms the silhouette of India">
+          <div class="bys-carry__map" id="bys-carry-map"></div>
+          <div class="bys-carry__logo" id="bys-carry-logo" aria-hidden="true">
+            <svg viewBox="0 0 40 44" class="icon"><path d="M20 2 C 20 10, 9 14, 9 26 A 11 11 0 0 0 31 26 C 31 14, 20 10, 20 2 Z"/><path d="M20 16 v 24 M20 40 l-5 -6 M20 40 l5 -6"/></svg>
+            <span>Echoes We Carry</span>
+          </div>
+        </figure>
+
+        <p class="bys-carry__tagline" id="bys-carry-tagline">Culture survives when someone chooses to carry it forward.</p>
+      </div>
+    </section>
+  </main>
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -907,6 +1174,7 @@
             <li><a href="#heritage">Heritage of India</a></li>
             <li><a href="#at-risk">Culture at Risk</a></li>
             <li><a href="#sound">Sound of India</a></li>
+            <li><a href="#story">Begin Your Story</a></li>
             <li><a href="#the-house">The House</a></li>
             <li><a href="#collections">Collections</a></li>
             <li><a href="#vault">The Vault</a></li>
@@ -958,6 +1226,8 @@
   <script src="js/heritage.js" defer></script>
   <script src="js/sound-data.js" defer></script>
   <script src="js/sound.js" defer></script>
+  <script src="js/journey-data.js" defer></script>
+  <script src="js/journey.js" defer></script>
 </body>
 </html>
 
