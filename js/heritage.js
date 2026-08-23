@@ -103,6 +103,7 @@
       html.push(
         '<button type="button" class="hm-mark" data-cat="' + esc(s.cat) + '" data-site="' + esc(s.id) + '"' +
         ' style="--mx:' + pct.x.toFixed(3) + '%;--my:' + pct.y.toFixed(3) + '%;--pulse-delay:' + ((i % 7) * 0.4).toFixed(1) + 's"' +
+        ' aria-controls="heritage-panel" aria-pressed="false"' +
         ' aria-label="' + esc(s.name) + ', ' + esc(catLabel(s.cat)) +
         (s.unesco ? ', UNESCO World Heritage' : '') + '. Press for details.">' +
         '<span class="hm-mark__ring" aria-hidden="true"></span>' +
@@ -298,10 +299,10 @@
   function selectSite(id) {
     var s = H.byId[id];
     if (!s) return;
-    if (H.selected === id) return;
     H.selected = id;
     qsa('.hm-mark', H.marksBox).forEach(function (b) {
       b.classList.toggle('is-active', b.getAttribute('data-site') === id);
+      b.setAttribute('aria-pressed', b.getAttribute('data-site') === id ? 'true' : 'false');
     });
     renderProfile(s);
     announce(s.name + ', ' + catLabel(s.cat) + '. Details shown in the panel.');
@@ -345,14 +346,17 @@
     }
     on(qs('.hp-clear-link', H.panel), 'click', clearSelection);
 
-    if (!reducedMotion && H.panel.scrollIntoView) {
-      H.panel.scrollIntoView({ block: 'nearest' });
+    if (H.panel.scrollIntoView) {
+      H.panel.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
     }
   }
 
   function clearSelection() {
     H.selected = null;
-    qsa('.hm-mark', H.marksBox).forEach(function (b) { b.classList.remove('is-active'); });
+    qsa('.hm-mark', H.marksBox).forEach(function (b) {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     if (H.panel) {
       H.panel.innerHTML =
         '<div class="hmap-panel__placeholder">' +
@@ -441,6 +445,7 @@
     }
 
     on(H.mapEl, 'pointerdown', function (e) {
+      if (e.target.closest('.hm-mark') || e.target.closest('.hmap-zoom') || e.target.closest('button')) return;
       pointers[e.pointerId] = e;
       moved = false;
       try { H.mapEl.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
@@ -873,6 +878,7 @@
       });
     });
 
+    if (chapters[0]) chapters[0].classList.add('is-in');
     revealScoped(qsa('[data-p4-reveal]', R.root));
     revealScoped(chapters);
   }
@@ -885,9 +891,12 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) en.target.classList.add('is-in');
+        if (en.isIntersecting) {
+          en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.01, rootMargin: '60px 0px -20px 0px' });
     els.forEach(function (el) { io.observe(el); });
   }
 

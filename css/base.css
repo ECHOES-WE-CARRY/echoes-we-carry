@@ -15,8 +15,14 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-ivory);
-  color: var(--text-ink);
+  background:
+    radial-gradient(1100px 720px at 85% -8%, rgba(93, 62, 168, 0.22), transparent 60%),
+    radial-gradient(900px 600px at -10% 28%, rgba(178, 85, 57, 0.13), transparent 55%),
+    radial-gradient(1000px 760px at 50% 112%, rgba(198, 153, 47, 0.1), transparent 60%),
+    linear-gradient(180deg, #0d0a15 0%, #131021 42%, #0e0b13 100%);
+  background-attachment: fixed;
+  background-color: var(--void, #0b0910);
+  color: var(--text-on-dark, #f6f0e4);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   line-height: 1.6;

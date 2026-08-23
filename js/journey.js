@@ -321,8 +321,14 @@
 
   function chooseRegion(id) {
     picks.region = id;
+    setStepChoice('region', regionName(id), regionZone(id));
+    picks.region = id; /* keep the region ID for data lookups — setStepChoice stores the display label */
     gainRegion(id);
     drawRegionState(id);
+    buildTraditionStep();
+    buildCraftStep();
+    buildSoundStep();
+    buildStoryStep();
     refreshStep('region');
     announce(regionName(id) + ' chosen. Now choose a tradition to carry from ' + regionName(id) + '.');
   }

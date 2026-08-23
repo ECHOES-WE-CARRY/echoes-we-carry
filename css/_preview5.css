@@ -1,0 +1,40 @@
+/* ==========================================================================
+   PREVIEW HARNESS OVERRIDES — dev only (css/_preview5.css)
+   Reveals every journey step at once so a single headless screenshot can
+   verify the full Phase-5 board. Never shipped to production pages.
+   ========================================================================== */
+.bys-hero { display: none !important; }
+
+.bys-step {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  min-height: 860px;
+}
+
+.bys-echocard,
+.bys-echocard__row {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.bys-carry__thread,
+.bys-carry__logo,
+.bys-carry__tagline {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+#preview-note {
+  position: fixed;
+  bottom: 10px;
+  right: 12px;
+  z-index: 99999;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #f6f0e4;
+  font: 11px/1.4 sans-serif;
+  letter-spacing: 0.04em;
+}

@@ -452,6 +452,8 @@
   font-size: var(--fs-caption);
 }
 .bys-selected:empty::before { content: ''; }
+#bys-sel-region:empty { display: none; }
+#bys-sel-region:empty + .bys-step__actions { margin-top: 1rem; }
 .bys-selected strong { color: var(--gold-pale); }
 .bys-selected em { color: var(--text-on-dark-muted); font-style: normal; display: block; margin-top: 0.3rem; line-height: 1.6; }
 

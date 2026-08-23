@@ -37,8 +37,7 @@
     live: qs('#sound-live'),
     paths: [],
     byId: {},
-    current: null,
-    engine: null
+    current: null
   };
   if (!S.root || !S.mapBox || !S.deck) return;
 
@@ -142,20 +141,19 @@
 
   function placeholderDeck() {
     S.deck.innerHTML =
-      '<div class="sound-placeholder"><p>Choose a glowing state on the map \u2014 or a chip below \u2014 and its rhythm will find you.</p><span aria-hidden="true">\u266A \u266B \u266A</span></div>';
+      '<div class="sound-placeholder"><p>Choose a glowing state on the map \u2014 or a chip below \u2014 to explore its sound profile.</p><span aria-hidden="true">\u266A \u266B \u266A</span></div>';
   }
 
   function selectRegion(id) {
     var cfg = S.byId[id];
     if (!cfg) return;
-    if (S.engine && S.engine.playing()) S.engine.stop();
     S.current = id;
     qsa('.sound-chip', S.chips).forEach(function (c) {
       c.classList.toggle('is-active', c.getAttribute('data-region') === id);
     });
     highlight(id);
     renderDeck(id, cfg);
-    announce(cfg.name + ': ' + cfg.modeName + '. Press play to listen.');
+    announce(cfg.name + ': ' + cfg.modeName + '. Sound profile selected.');
   }
 
   /* take the visitor to the full Phase-2 Atlas profile for this state */
@@ -190,12 +188,9 @@
     h.push('<div><dt>Instruments</dt><dd class="sound-instr">' +
       cfg.instruments.map(function (i) { return '<span class="instr-chip">' + esc(i) + '</span>'; }).join('') +
       '</dd></div>');
-    h.push('<div><dt>Songs of the season</dt><dd><strong>' + esc(cfg.festivalSong.name) +
-      '</strong> \u2014 ' + esc(cfg.festivalSong.note) + '</dd></div>');
     h.push('</dl>');
-    h.push('<div class="sp" data-sp></div>');
     h.push('<footer class="sound-card__foot">');
-    h.push('<button type="button" class="text-link sound-atlas-link"><span>Hear more of ' +
+    h.push('<button type="button" class="text-link sound-atlas-link"><span>Explore ' +
       esc(cfg.name) + ' in the Atlas</span>' +
       '<svg class="icon text-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>');
     h.push('</footer>');
@@ -203,8 +198,6 @@
     S.deck.innerHTML = h.join('');
 
     on(qs('.sound-atlas-link', S.deck), 'click', function () { goToAtlas(id); });
-
-    mountPlayer(id, cfg);
 
     var card = qs('.sound-card', S.deck);
     if (card && !reducedMotion) {

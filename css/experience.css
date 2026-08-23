@@ -62,7 +62,7 @@
   transition: box-shadow var(--t-medium);
 }
 .senses__map.is-active { box-shadow: 0 40px 90px rgba(198, 153, 47, 0.18), 0 34px 70px rgba(0,0,0,0.5); }
-.senses__map .mini-map { width: 100%; }
+.senses__map .mini-map { width: 100%; height: auto; display: block; }
 .senses__map .atlas-region {
   fill: rgba(246, 240, 228, 0.1);
   stroke: rgba(246, 240, 228, 0.28);
@@ -310,7 +310,7 @@
   padding: clamp(1rem,2.4vw,1.8rem);
   overflow: hidden;
 }
-.threads__map .mini-map { width: 100%; }
+.threads__map .mini-map { width: 100%; height: auto; display: block; }
 .threads__map .atlas-region {
   fill: rgba(246,240,228,0.07);
   stroke: rgba(246,240,228,0.22);
@@ -600,7 +600,8 @@
 /* ==========================================================================
    4. IMMERSIVE MODAL (stories + makers)
    ========================================================================== */
-.modal {
+.modal,
+.culture-modal {
   position: fixed;
   inset: 0;
   z-index: 800;
@@ -613,8 +614,10 @@
   visibility: hidden;
   transition: opacity var(--t-medium), visibility var(--t-medium);
 }
-.modal.is-open { opacity: 1; visibility: visible; }
-.modal__dialog {
+.modal.is-open,
+.culture-modal.is-open { opacity: 1; visibility: visible; }
+.modal__dialog,
+.culture-modal__dialog {
   position: relative;
   width: 100%;
   max-width: 860px;
@@ -628,11 +631,15 @@
   transition: transform var(--t-medium);
 }
 @media (min-width: 700px) {
-  .modal { align-items: center; }
-  .modal__dialog { border-radius: var(--radius-lg); margin: var(--space-md); transform: translateY(20px) scale(0.98); }
+  .modal,
+  .culture-modal { align-items: center; }
+  .modal__dialog,
+  .culture-modal__dialog { border-radius: var(--radius-lg); margin: var(--space-md); transform: translateY(20px) scale(0.98); }
 }
-.modal.is-open .modal__dialog { transform: translateY(0) scale(1); }
-.modal__close {
+.modal.is-open .modal__dialog,
+.culture-modal.is-open .culture-modal__dialog { transform: translateY(0) scale(1); }
+.modal__close,
+.culture-modal__close {
   position: absolute;
   top: var(--space-sm);
   right: var(--space-sm);
@@ -647,7 +654,8 @@
   border: 1px solid rgba(246,240,228,0.25);
   transition: background var(--t-fast), transform var(--t-fast);
 }
-.modal__close:hover { background: var(--color-terracotta); transform: rotate(90deg); }
+.modal__close:hover,
+.culture-modal__close:hover { background: var(--color-terracotta); transform: rotate(90deg); }
 
 /* --- story detail --- */
 .story-detail__art {

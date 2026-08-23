@@ -66,7 +66,8 @@
     if (svg) {
       svg.classList.add('mini-map');
       svg.setAttribute('width', '100%');
-      svg.setAttribute('height', 'auto');
+      /* height intentionally left to CSS (.mini-map { height: auto }) — the
+         SVG height="" presentation attribute rejects the keyword "auto". */
     }
     var paths = svg ? qsa('.atlas-region', container) : [];
     return { svg: svg, paths: paths };
@@ -470,7 +471,6 @@
   ======================================================================== */
   var modal = qs('#culture-modal');
   var modalDialog = qs('#culture-modal-dialog');
-  var modalClose = qs('#culture-modal-close');
   var lastFocused = null;
 
   function openModal() {
@@ -479,7 +479,8 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     doc.body.classList.add('no-scroll');
-    if (modalClose) modalClose.focus();
+    var btn = qs('#culture-modal-close', modal) || qs('.modal__close', modal) || qs('.culture-modal__close', modal);
+    if (btn) btn.focus();
   }
   function closeModal() {
     if (!modal) return;
@@ -489,8 +490,11 @@
     if (lastFocused && lastFocused.focus) lastFocused.focus();
   }
 
-  on(modalClose, 'click', closeModal);
-  on(modal, 'click', function (e) { if (e.target === modal) closeModal(); });
+  on(modal, 'click', function (e) {
+    if (e.target === modal || e.target.classList.contains('culture-modal__close') || e.target.classList.contains('modal__close')) {
+      closeModal();
+    }
+  });
   on(doc, 'keydown', function (e) {
     if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal();
   });
@@ -501,6 +505,7 @@
     D.stories.forEach(function (x) { if (x.key === key) s = x; });
     if (!s || !modalDialog) return;
     var h = [];
+    h.push('<button class="modal__close culture-modal__close" id="culture-modal-close" type="button" aria-label="Close details">&times;</button>');
     h.push('<div class="story-detail">');
     h.push('<div class="story-detail__art" aria-hidden="true"></div>');
     h.push('<div class="story-detail__head">');
@@ -531,6 +536,8 @@
     h.push('</div>');
     h.push('</div>');
     modalDialog.innerHTML = h.join('');
+    var closeBtn = qs('#culture-modal-close', modalDialog);
+    if (closeBtn) on(closeBtn, 'click', closeModal);
     openModal();
     wireThenNow(modalDialog);
   }
@@ -555,6 +562,7 @@
     D.makers.forEach(function (x) { if (x.key === key) m = x; });
     if (!m || !modalDialog) return;
     var h = [];
+    h.push('<button class="modal__close culture-modal__close" id="culture-modal-close" type="button" aria-label="Close details">&times;</button>');
     h.push('<div class="maker-detail">');
     h.push('<div class="maker-detail__head">');
     h.push('<p class="maker-detail__kicker">' + esc(m.craft) + '</p>');
@@ -573,6 +581,8 @@
     h.push('</div>');
     h.push('</div>');
     modalDialog.innerHTML = h.join('');
+    var closeBtn = qs('#culture-modal-close', modalDialog);
+    if (closeBtn) on(closeBtn, 'click', closeModal);
     openModal();
   }
 

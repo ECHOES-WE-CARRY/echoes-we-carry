@@ -226,6 +226,19 @@ html.js .atlas .hero__scrollcue { animation-delay: 2.6s; }
   background: rgba(21, 16, 34, 0.78);
 }
 .atlas-filters { display: flex; flex-wrap: wrap; gap: var(--space-2xs); justify-content: center; }
+.atlas .atlas__scrollcue {
+  position: static;
+  transform: none;
+  flex-direction: row;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  color: var(--gold-pale);
+}
+.atlas .atlas__scrollcue:hover { transform: translateY(-3px); }
+.atlas .atlas__scrollcue .hero__scrollcue-icon {
+  width: 16px;
+  height: 22px;
+}
 
 /* ---- 6. STAGE LAYOUT ------------------------------------------------------- */
 .atlas-stage {

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Echoes We Carry — a modern house of Indian heritage, preserving heirloom textiles, adornments and ritual objects through the hands of master artisans." />
+  <meta name="description" content="Echoes We Carry — an interactive cultural atlas exploring India's states, stories, living traditions and heritage." />
   <meta name="theme-color" content="#0d0a15" />
-  <title>Echoes We Carry — Heirlooms of Indian Heritage</title>
+  <title>Echoes We Carry — An Interactive Cultural Atlas of India</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
   <!-- ============ PRELOADER ============ -->
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader__inner">
-      <span class="preloader__mark" aria-hidden="true"></span>
+      <span class="preloader__mark" aria-hidden="true"><svg viewBox="0 0 48 48" class="icon preloader__svg"><path d="M24 3 39 12v24L24 45 9 36V12Z"/><circle cx="24" cy="24" r="12.5"/><path d="M18 17v14M18 17h12M18 24h8M18 31h12"/><circle cx="24" cy="7.5" r="1"/><circle cx="24" cy="40.5" r="1"/></svg></span>
       <p class="preloader__wordmark" aria-hidden="true">
         <span>E</span><span>c</span><span>h</span><span>o</span><span>e</span><span>s</span>
       </p>
@@ -46,7 +46,7 @@
     <div class="container header__inner">
       <a href="#top" class="brand" aria-label="Echoes We Carry — home">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 40 44" class="icon brand__svg"><path d="M20 2 C 20 10, 9 14, 9 26 A 11 11 0 0 0 31 26 C 31 14, 20 10, 20 2 Z"/><path d="M20 16 v 24 M20 40 l-5 -6 M20 40 l5 -6" /></svg>
+          <svg viewBox="0 0 48 48" class="icon brand__svg"><path d="M24 3 39 12v24L24 45 9 36V12Z"/><circle cx="24" cy="24" r="12.5"/><path d="M18 17v14M18 17h12M18 24h8M18 31h12"/><circle cx="24" cy="7.5" r="1"/><circle cx="24" cy="40.5" r="1"/></svg>
         </span>
         <span class="brand__text">Echoes <em>We</em> Carry</span>
       </a>
@@ -128,10 +128,10 @@
             Echoes We Carry &middot; The Cultural Atlas of India
           </p>
           <h1 class="atlas-masthead__title">
-            Union <em>Echoes</em>
-            <span class="atlas-masthead__subline">Mapped across <strong>36</strong> states &amp; union territories</span>
+            Echoes <em>We Carry</em>
+            <span class="atlas-masthead__subline">An interactive cultural atlas of <strong>36</strong> regions</span>
           </h1>
-          <p class="atlas-masthead__quote">Heirlooms are not objects. They carry our <span class="rotate-word" id="rotate-word">echoes</span>.</p>
+          <p class="atlas-masthead__quote">Every state has a story. Every story leaves an echo.</p>
           <p class="atlas-masthead__lede">
             Trace the textiles, adornments and rituals of the subcontinent &mdash; state by state &mdash;
             through the hands of the masters who keep them alive. Hover a region to glimpse its echoes; click to enter.
@@ -144,17 +144,16 @@
           </ul>
         </header>
 
-        <div class="atlas-toolbar" role="toolbar" aria-label="Filter and search regions">
-          <div class="atlas-search">
-            <svg class="icon atlas-search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
-            <label for="atlas-search" class="visually-hidden">Search states and union territories</label>
-            <input id="atlas-search" type="search" class="atlas-search__input" placeholder="Search states &amp; union territories&#8230;" autocomplete="off" />
-          </div>
+        <div class="atlas-toolbar" role="toolbar" aria-label="Filter regions">
           <div class="atlas-filters">
             <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
             <button type="button" class="filter-btn" data-filter="state" aria-pressed="false">States</button>
             <button type="button" class="filter-btn" data-filter="ut" aria-pressed="false">Union Territories</button>
           </div>
+          <a href="#senses" class="hero__scrollcue atlas__scrollcue" aria-label="Scroll to The Five Senses of India">
+            <span class="hero__scrollcue-txt">Scroll</span>
+            <svg class="icon hero__scrollcue-icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="15" rx="3"/><path d="M12 7v4"/></svg>
+          </a>
         </div>
 
         <div class="atlas-stage">
@@ -182,10 +181,6 @@
         <div id="atlas-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
       </div>
 
-      <a href="#senses" class="hero__scrollcue" aria-label="Scroll to The Five Senses of India">
-        <span class="hero__scrollcue-txt">Scroll</span>
-        <svg class="icon hero__scrollcue-icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="15" rx="3"/><path d="M12 7v4"/></svg>
-      </a>
     </section>
 
     <!-- ============ THE FIVE SENSES ============ -->
@@ -265,11 +260,6 @@
         </header>
 
         <div class="hmap-toolbar" data-reveal data-reveal-delay="1">
-          <div class="hmap-search">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
-            <label for="heritage-search" class="visually-hidden">Search heritage sites by name or place</label>
-            <input id="heritage-search" type="search" placeholder="Search sites, places&hellip;" autocomplete="off" />
-          </div>
           <div class="p4-filters" id="heritage-filters" role="toolbar" aria-label="Heritage layers"></div>
         </div>
 
@@ -407,14 +397,26 @@
 
     <!-- ============ PHASE 4 · SOUND OF INDIA ============ -->
     <section class="sound" id="sound" aria-label="Sound of India - an interactive audio journey">
+      <div class="sound__aurora" aria-hidden="true"></div>
       <div class="p4-grain" aria-hidden="true"></div>
+      <svg class="sound__motif" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
+        <g fill="none" stroke="currentColor">
+          <circle cx="400" cy="400" r="330" opacity="0.3" />
+          <circle cx="400" cy="400" r="252" opacity="0.2" />
+          <circle cx="400" cy="400" r="176" opacity="0.14" />
+          <path d="M400 76 a 208 208 0 0 1 208 208 l -416 0 a 208 208 0 0 1 208 -208 Z" opacity="0.35" />
+          <path d="M400 76 a 208 208 0 0 1 208 208 l -416 0 a 208 208 0 0 1 208 -208 Z" opacity="0.2" transform="rotate(60 400 400)" />
+          <path d="M400 76 a 208 208 0 0 1 208 208 l -416 0 a 208 208 0 0 1 208 -208 Z" opacity="0.2" transform="rotate(120 400 400)" />
+          <circle cx="400" cy="400" r="6" fill="currentColor" stroke="none" />
+        </g>
+      </svg>
 
       <div class="container sound__inner">
         <header class="sound-masthead" data-reveal>
           <p class="section-eyebrow section-eyebrow--light">Phase IV &middot; Sound of India</p>
           <h2 class="sound-masthead__title">Every region has a <em>rhythm of its own.</em></h2>
           <p class="sound-masthead__lede">
-            Choose a glowing state and its soundscape rises: classical lineages, folk forms,
+            Choose a glowing state to explore its soundscape: classical lineages, folk forms,
             the instruments that make them, the festivals they belong to.
           </p>
         </header>
@@ -422,7 +424,7 @@
         <div class="sound-stage">
           <figure class="sound-map-card" data-reveal data-reveal-delay="1">
             <div id="sound-map" aria-label="Map of regions with sound profiles"></div>
-            <figcaption class="sound-map-hint">Glowing states carry sound profiles &mdash; click one to listen.</figcaption>
+            <figcaption class="sound-map-hint">Glowing states carry sound profiles &mdash; click one to explore.</figcaption>
           </figure>
 
           <aside class="sound-deck" id="sound-deck" aria-live="polite" data-reveal data-reveal-delay="1"></aside>
@@ -432,7 +434,6 @@
           <div id="sound-chips" role="toolbar" aria-label="Jump to a regional sound"></div>
         </div>
 
-        <p class="p4-note">All audio is synthesised live in your browser as an interpretive placeholder &mdash; no recordings are used.</p>
       </div>
       <p class="visually-hidden" id="sound-live" role="status" aria-live="polite"></p>
     </section>
@@ -758,7 +759,7 @@
               <span class="journal-card__cat">Craft</span>
               <h3 class="journal-card__title">The Language of Zari</h3>
               <p class="journal-card__excerpt">How a single golden thread can carry a century of looms, marriages and migrations.</p>
-              <span class="journal-card__meta">Aug 2026 · 6 min read</span>
+              <span class="journal-card__meta">Aug 2026</span>
             </div>
           </article>
 
@@ -768,7 +769,7 @@
               <span class="journal-card__cat">Ritual</span>
               <h3 class="journal-card__title">Monsoon, Memory &amp; Marigolds</h3>
               <p class="journal-card__excerpt">The small ceremonies we keep — and the objects that carry them across borders.</p>
-              <span class="journal-card__meta">Jul 2026 · 4 min read</span>
+              <span class="journal-card__meta">Jul 2026</span>
             </div>
           </article>
 
@@ -778,7 +779,7 @@
               <span class="journal-card__cat">People</span>
               <h3 class="journal-card__title">Meet the Weaver of Assi Ghat</h3>
               <p class="journal-card__excerpt">Bare hands, a wooden loom, and the fourth generation of a Banarasi dynasty.</p>
-              <span class="journal-card__meta">Jun 2026 · 8 min read</span>
+              <span class="journal-card__meta">Jun 2026</span>
             </div>
           </article>
 
@@ -788,7 +789,7 @@
               <span class="journal-card__cat">Craft</span>
               <h3 class="journal-card__title">The Paisley’s Long Journey Home</h3>
               <p class="journal-card__excerpt">From the banks of the Jhelum to Kashmir shawls — and the boteh that never left.</p>
-              <span class="journal-card__meta">May 2026 · 5 min read</span>
+              <span class="journal-card__meta">May 2026</span>
             </div>
           </article>
 
@@ -798,7 +799,7 @@
               <span class="journal-card__cat">Ritual</span>
               <h3 class="journal-card__title">The Deepam That Never Died</h3>
               <p class="journal-card__excerpt">A brass lamp, three wars, one family — and what it means to keep a flame.</p>
-              <span class="journal-card__meta">Apr 2026 · 7 min read</span>
+              <span class="journal-card__meta">Apr 2026</span>
             </div>
           </article>
 
@@ -808,7 +809,7 @@
               <span class="journal-card__cat">People</span>
               <h3 class="journal-card__title">A Jeweller of the Pink City</h3>
               <p class="journal-card__excerpt">Inside a Jaipur workshop where polki has been set by the same hands for eighty years.</p>
-              <span class="journal-card__meta">Mar 2026 · 6 min read</span>
+              <span class="journal-card__meta">Mar 2026</span>
             </div>
           </article>
         </div>
@@ -1075,6 +1076,7 @@
 
         <p class="bys-thread__truth" aria-hidden="true">“What we inherit, we carry forward.”</p>
       </div>
+      <p class="visually-hidden" id="bys-live" role="status" aria-live="polite"></p>
     </section>
 <!-- ============ YOUR ECHO — THE HERITAGE CARD ============ -->
     <section class="bys-echo" id="your-echo" aria-label="Your Echo - the heritage card of your journey">
@@ -1137,7 +1139,7 @@
         <figure class="bys-carry__thread" id="bys-carry-thread" aria-label="A golden thread forms the silhouette of India">
           <div class="bys-carry__map" id="bys-carry-map"></div>
           <div class="bys-carry__logo" id="bys-carry-logo" aria-hidden="true">
-            <svg viewBox="0 0 40 44" class="icon"><path d="M20 2 C 20 10, 9 14, 9 26 A 11 11 0 0 0 31 26 C 31 14, 20 10, 20 2 Z"/><path d="M20 16 v 24 M20 40 l-5 -6 M20 40 l5 -6"/></svg>
+            <svg viewBox="0 0 48 48" class="icon"><path d="M24 3 39 12v24L24 45 9 36V12Z"/><circle cx="24" cy="24" r="12.5"/><path d="M18 17v14M18 17h12M18 24h8M18 31h12"/><circle cx="24" cy="7.5" r="1"/><circle cx="24" cy="40.5" r="1"/></svg>
             <span>Echoes We Carry</span>
           </div>
         </figure>
@@ -1146,7 +1148,6 @@
       </div>
     </section>
   </main>
-  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
@@ -1154,7 +1155,7 @@
       <div class="footer__brand">
         <a href="#top" class="brand brand--footer" aria-label="Echoes We Carry — back to top">
           <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 40 44" class="icon brand__svg"><path d="M20 2 C 20 10, 9 14, 9 26 A 11 11 0 0 0 31 26 C 31 14, 20 10, 20 2 Z"/><path d="M20 16 v 24 M20 40 l-5 -6 M20 40 l5 -6" /></svg>
+            <svg viewBox="0 0 48 48" class="icon brand__svg"><path d="M24 3 39 12v24L24 45 9 36V12Z"/><circle cx="24" cy="24" r="12.5"/><path d="M18 17v14M18 17h12M18 24h8M18 31h12"/><circle cx="24" cy="7.5" r="1"/><circle cx="24" cy="40.5" r="1"/></svg>
           </span>
           <span class="brand__text">Echoes <em>We</em> Carry</span>
         </a>
@@ -1185,14 +1186,17 @@
           <ul>
             <li><a href="#echoes">Echoes</a></li>
             <li><a href="#journal">Journal</a></li>
+            <li><a href="#stories">Stories Behind the Culture</a></li>
+            <li><a href="#makers">Meet the Makers</a></li>
             <li><a href="#join">Correspondence</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4 class="footer__heading">Atelier</h4>
+          <h4 class="footer__heading">Contact</h4>
           <ul>
-            <li><span class="footer__muted">B-17, Silk Way, Assi Ghat<br />Varanasi 221005, India</span></li>
-            <li><a href="mailto:namaste@echoeswecarry.in">namaste@echoeswecarry.in</a></li>
+            <li><a href="mailto:sreyaramesh07@gmail.com">sreyaramesh07@gmail.com</a></li>
+            <li><a href="mailto:akshaya0082@gmail.com">akshaya0082@gmail.com</a></li>
+            <li><a href="#join">Join The Correspondence</a></li>
           </ul>
         </div>
       </nav>
@@ -1209,9 +1213,9 @@
     <svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </button>
 
-  <div class="culture-modal" id="culture-modal" aria-hidden="true">
-    <div class="culture-modal__dialog" id="culture-modal-dialog" role="dialog" aria-modal="true" aria-label="Cultural story details">
-      <button class="culture-modal__close" id="culture-modal-close" type="button" aria-label="Close details">&times;</button>
+  <div class="modal culture-modal" id="culture-modal" aria-hidden="true">
+    <div class="modal__dialog culture-modal__dialog" id="culture-modal-dialog" role="dialog" aria-modal="true" aria-label="Cultural story details">
+      <button class="modal__close culture-modal__close" id="culture-modal-close" type="button" aria-label="Close details">&times;</button>
     </div>
   </div>
 
@@ -1223,9 +1227,9 @@
   <script src="js/experience-data.js" defer></script>
   <script src="js/experience.js" defer></script>
   <script src="js/heritage-data.js" defer></script>
-  <script src="js/heritage.js" defer></script>
+  <script src="js/heritage.js?v=6" defer></script>
   <script src="js/sound-data.js" defer></script>
-  <script src="js/sound.js" defer></script>
+  <script src="js/sound.js?v=2" defer></script>
   <script src="js/journey-data.js" defer></script>
   <script src="js/journey.js" defer></script>
 </body>

@@ -552,7 +552,7 @@
   display: grid;
   grid-template-columns: minmax(210px, 260px) minmax(0, 1fr);
   gap: clamp(1.5rem, 4vw, 4rem);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
   align-items: start;
 }
 .risk-rail {
@@ -614,9 +614,13 @@ html.js .risk-chapter {
               transform 0.7s var(--ease-out-soft) var(--d, 0ms);
 }
 html.js [data-p4-reveal].is-in,
-html.js .risk-chapter.is-in {
+html.js .risk-chapter.is-in,
+html.js .risk-chapter:first-child {
   opacity: 1;
   transform: none;
+}
+.risk-chapter + .risk-chapter {
+  margin-top: var(--space-xl);
 }
 @media (prefers-reduced-motion: reduce) {
   html.js [data-p4-reveal],
@@ -846,13 +850,15 @@ html.js .risk-chapter.is-in {
   box-shadow: 0 6px 20px rgba(198, 153, 47, 0.45), inset 0 0 0 2px rgba(11, 9, 16, 0.35);
 }
 .cmp__handle i::before {
-  content: '\u2194';
+  content: '';
   position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 15px;
-  color: #1c1508;
+  top: 10px;
+  left: 9px;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: #1c1508;
+  box-shadow: 0 5px #1c1508, 0 10px #1c1508;
 }
 .cmp__handle:focus-visible { outline: none; }
 .cmp__handle:focus-visible i { box-shadow: 0 0 0 3px rgba(246, 240, 228, 0.65), 0 6px 20px rgba(198, 153, 47, 0.45); }
@@ -964,6 +970,27 @@ html.js .risk-chapter.is-in {
   z-index: 1;
 }
 .sound__inner { position: relative; z-index: 2; }
+/* opening decorations — mirror the Heritage/BYS premium treatment */
+.sound__aurora {
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  filter: blur(34px);
+  background:
+    radial-gradient(34% 26% at 26% 32%, rgba(120, 82, 48, 0.16), transparent 70%),
+    radial-gradient(28% 24% at 74% 64%, rgba(93, 62, 168, 0.3), transparent 70%);
+  animation: hm-drift 18s ease-in-out infinite alternate;
+}
+.sound__motif {
+  position: absolute;
+  left: -13%;
+  bottom: -28%;
+  width: 52vw;
+  height: 52vw;
+  color: rgba(221, 182, 95, 0.12);
+  pointer-events: none;
+  animation: motif-spin 140s linear infinite;
+}
 .sound-masthead { text-align: center; max-width: 860px; margin-inline: auto; }
 .sound-masthead__title {
   margin-top: var(--space-sm);
@@ -1244,6 +1271,8 @@ html.js .risk-chapter.is-in {
 @media (prefers-reduced-motion: reduce) {
   .hmap__aurora,
   .hmap__motif,
+  .sound__aurora,
+  .sound__motif,
   .hm-route.is-on { animation: none !important; }
   .hm-mark__ring { animation: none !important; opacity: 0.4; }
   .hmap-world { transition: none !important; }
